@@ -1,0 +1,186 @@
+
+Lights {
+    numLights 36
+	PointLight {
+        position 0.22295144376770737 4.623809415726832 5.066908533633748
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.2224441169183222 4.755948367423277 4.947440573449838
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.10818803580526755 5.04562774178838 5.124647514219661
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.07502240254705773 4.955636866038918 5.063203231814215
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.22039289890018787 5.375134686329767 4.959324799834937
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.0595674946340608 5.064614370921104 5.14314029976718
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.09794827698141975 5.488451177317538 5.222864833770517
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.291836246854818 5.105297449188998 5.343925401554297
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.26860842757271 5.261873684532267 4.440073244672731
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.2336249638271619 4.846792150520123 5.0710569443040825
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.0665636290385772 4.963807302519097 5.0752898613607815
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.2136800535085822 4.908904489063802 5.242574531895126
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.2198788316719075 4.775244435532779 5.118528213879646
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.48218532695725175 5.159792454195008 5.169335230101563
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.14810507769695902 5.289766741499333 5.063564063185996
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.4396123869496371 4.762544446907675 4.650337661724163
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.038036407556183705 4.863957290391513 4.442127766251389
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.12366061540157613 5.201845321379808 4.908702836614778
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.05631548139067693 4.8968782620851234 4.705652138445234
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.14340176208941616 4.881467927486749 4.8860366039018235
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.2895729867268601 4.942085531710989 5.003125751046897
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.19398621619609613 4.793709551891056 5.238963156708538
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.007878466944006504 4.970918742816555 4.9021307348386225
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.061660454179084445 4.900654159627082 4.913096614534573
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.17556202025043405 4.966646783050001 5.057182761631743
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.4461032944040644 4.750508295647263 4.98879406466394
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.3215672670383942 4.9143936013577205 5.179887559254066
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.1327812418972392 5.102324008154225 4.721648973371071
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.1881654949862258 5.4374822252079955 4.801872756220853
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.29861059139237334 4.962218479780163 4.905991631589273
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.09313638758386616 4.9721286864156715 4.818268309363704
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.1267258241616248 5.242368438506968 4.882614870693499
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position 0.04082193049438332 5.140392922261025 4.88794124537138
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.19178292604060804 5.002880708757815 4.590476715280452
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.4136519404946789 4.957833974871181 4.817357675073107
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+	PointLight {
+        position -0.11127221396464729 5.1657192752198755 4.52259974668349
+        color 0.9 0.9 0.9
+        intensity 0.025
+    }
+
+}
+

@@ -6,6 +6,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
+#include <fstream>
 #include "utils.hpp"
 
 struct BMPHeader{
@@ -32,8 +33,10 @@ struct BMPHeader{
 class Image {
 public:
     int w, h; Vector3f *data;
+    Image() : w(0), h(0), data(nullptr) {}
     Image(int w, int h) : w(w), h(h), data(new Vector3f[w*h]) {}
     Image(int w, int h, const Vector3f &color) : w(w), h(h), data(new Vector3f[w*h]) {paint(color);}
+    Image(const char *filename);
     ~Image() {delete[] data;}
 
     void paint(const Vector3f &color = Vector3f::ZERO) {for(int i = 0; i < w*h; data[i++] = color);}

@@ -6,8 +6,8 @@ if __name__=="__main__":
         FloatArgumentDescriptor("x"),
         FloatArgumentDescriptor("y"),
         FloatArgumentDescriptor("z"),
-        FloatArgumentDescriptor("n",default= 36),
-        FloatArgumentDescriptor("s",default=0.2),
+        IntArgumentDescriptor("n",default= 25),
+        FloatArgumentDescriptor("s",default=0.15),
         FloatArgumentDescriptor("i",default=0.9),
         StrArgumentDescriptor("color",default="0.9 0.9 0.9"),
     ])

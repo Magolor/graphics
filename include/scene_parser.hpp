@@ -14,8 +14,8 @@
 #include "plane.hpp"
 #include "triangle.hpp"
 #include "transform.hpp"
-#include "image.hpp"
 #include "utils.hpp"
+#include "image.hpp"
 
 #define MAX_PARSER_TOKEN_LENGTH 1024
 
@@ -25,6 +25,7 @@ class SceneParser {
 public:
     Group *group;
     Camera *camera;
+    Image *texture;
     Vector3f color;
     int nLights, nMaterials;
 
@@ -33,6 +34,7 @@ public:
         // initialize some reasonable default values
         group = nullptr;
         camera = nullptr;
+        texture = nullptr;
         color = Vector3f(0.5, 0.5, 0.5);
         nLights = 0;
         lights = nullptr;
@@ -66,6 +68,7 @@ public:
     ~SceneParser() {
         delete group;
         delete camera;
+        delete texture;
     
         int i;
         for (i = 0; i < nMaterials; i++) {
@@ -84,7 +87,6 @@ public:
     bool shadowTracing(const Ray &r, const Hit &hit, const Vector3f &dirToLight, double eps = 1e-7) const;
     Vector3f rayTracing(const Ray &r, const Vector3f &background, int depth = 4, double eps = 1e-7) const;
     Image render(int depth = 4) const;
-
 
 private:
     void parseFile() {
@@ -146,6 +148,7 @@ private:
     
     void parseBackground() {
         char token[MAX_PARSER_TOKEN_LENGTH];
+        char filename[MAX_PARSER_TOKEN_LENGTH];
         // read in the background color
         getToken(token);
         assert (!strcmp(token, "{"));
@@ -155,6 +158,9 @@ private:
                 break;
             } else if (!strcmp(token, "color")) {
                 color = readVector3f();
+            } else if (!strcmp(token, "texture")) {
+                getToken(filename);
+                texture = readTexture(filename);
             } else {
                 printf("Unknown token in parseBackground: '%s'\n", token);
                 assert(0);
@@ -519,6 +525,10 @@ private:
         return 1;
     }
     
+    Image *readTexture(const char *filename) {
+        return new Image(filename);
+    }
+
     Vector4f readVector4f() {
         double x, y, z, w;
         int count = fscanf(file, "%lf %lf %lf %lf", &x, &y, &z, &w);

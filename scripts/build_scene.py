@@ -41,8 +41,9 @@ if __name__=="__main__":
     args = HeavenArguments.from_parser([
         IntArgumentDescriptor("W",default=1080),
         IntArgumentDescriptor("H",default=720),
+        StrArgumentDescriptor("texture",default="resources/textures/envmap.jpg"),
         StrArgumentDescriptor("color",default="0 0 255"),
-        StrArgumentDescriptor("softlights"),
+        StrArgumentDescriptor("softlights",default=""),
     ])
     CMD(f"python scripts/build_softlights.py {args.softlights} > resources/lights/softlights.txt")
     softlights = open("resources/lights/softlights.txt","r").read()
@@ -60,9 +61,10 @@ PerspectiveCamera {
 <softlights>
 
 Background {
+    texture <texture>
     color <color>
 }
 
 <scene>
-""".replace("<W>",str(args.W)).replace("<H>",str(args.H)).replace("<softlights>",softlights).replace("<color>",args.color).replace("<scene>",scene)
+""".replace("<W>",str(args.W)).replace("<H>",str(args.H)).replace("<softlights>",softlights).replace("<texture>",args.texture).replace("<color>",args.color).replace("<scene>",scene)
 )

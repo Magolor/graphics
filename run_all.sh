@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+clear
 
 # If project not ready, generate cmake file.
 if [[ ! -d build ]]; then
@@ -28,7 +29,8 @@ mkdir -p output
 python  scripts/build_scene.py \
         --W 1080 \
         --H 720 \
-        --softlights "-x 0 -y 5 -z 5" \
+        --softlights "-x 0 -y 5 -z 5 -n 25 -s 0.15 -i 0.9 -c \"0.9 0.9 0.9\"" \
+        --texture "resources/textures/envmap.jpg" \
         --color "0 0 255" \
         > testcases/scene.txt
 bin/FINAL testcases/scene.txt output/scene.bmp

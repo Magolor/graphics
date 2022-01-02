@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/chenzui/graphics/src/image.cpp" "/home/chenzui/graphics/build/CMakeFiles/FINAL.dir/src/image.cpp.o"
   "/home/chenzui/graphics/src/main.cpp" "/home/chenzui/graphics/build/CMakeFiles/FINAL.dir/src/main.cpp.o"
   "/home/chenzui/graphics/src/material.cpp" "/home/chenzui/graphics/build/CMakeFiles/FINAL.dir/src/material.cpp.o"
   "/home/chenzui/graphics/src/mesh.cpp" "/home/chenzui/graphics/build/CMakeFiles/FINAL.dir/src/mesh.cpp.o"

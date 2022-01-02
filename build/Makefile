@@ -136,6 +136,33 @@ vecmath/fast:
 	$(MAKE) -f deps/vecmath/CMakeFiles/vecmath.dir/build.make deps/vecmath/CMakeFiles/vecmath.dir/build
 .PHONY : vecmath/fast
 
+src/image.o: src/image.cpp.o
+
+.PHONY : src/image.o
+
+# target to build an object file
+src/image.cpp.o:
+	$(MAKE) -f CMakeFiles/FINAL.dir/build.make CMakeFiles/FINAL.dir/src/image.cpp.o
+.PHONY : src/image.cpp.o
+
+src/image.i: src/image.cpp.i
+
+.PHONY : src/image.i
+
+# target to preprocess a source file
+src/image.cpp.i:
+	$(MAKE) -f CMakeFiles/FINAL.dir/build.make CMakeFiles/FINAL.dir/src/image.cpp.i
+.PHONY : src/image.cpp.i
+
+src/image.s: src/image.cpp.s
+
+.PHONY : src/image.s
+
+# target to generate assembly for a file
+src/image.cpp.s:
+	$(MAKE) -f CMakeFiles/FINAL.dir/build.make CMakeFiles/FINAL.dir/src/image.cpp.s
+.PHONY : src/image.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -281,6 +308,9 @@ help:
 	@echo "... FINAL"
 	@echo "... edit_cache"
 	@echo "... vecmath"
+	@echo "... src/image.o"
+	@echo "... src/image.i"
+	@echo "... src/image.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

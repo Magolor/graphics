@@ -81,9 +81,33 @@ CMakeFiles/FINAL.dir/src/main.cpp.o.provides: CMakeFiles/FINAL.dir/src/main.cpp.
 CMakeFiles/FINAL.dir/src/main.cpp.o.provides.build: CMakeFiles/FINAL.dir/src/main.cpp.o
 
 
+CMakeFiles/FINAL.dir/src/image.cpp.o: CMakeFiles/FINAL.dir/flags.make
+CMakeFiles/FINAL.dir/src/image.cpp.o: ../src/image.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FINAL.dir/src/image.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FINAL.dir/src/image.cpp.o -c /home/chenzui/graphics/src/image.cpp
+
+CMakeFiles/FINAL.dir/src/image.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FINAL.dir/src/image.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chenzui/graphics/src/image.cpp > CMakeFiles/FINAL.dir/src/image.cpp.i
+
+CMakeFiles/FINAL.dir/src/image.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FINAL.dir/src/image.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chenzui/graphics/src/image.cpp -o CMakeFiles/FINAL.dir/src/image.cpp.s
+
+CMakeFiles/FINAL.dir/src/image.cpp.o.requires:
+
+.PHONY : CMakeFiles/FINAL.dir/src/image.cpp.o.requires
+
+CMakeFiles/FINAL.dir/src/image.cpp.o.provides: CMakeFiles/FINAL.dir/src/image.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FINAL.dir/build.make CMakeFiles/FINAL.dir/src/image.cpp.o.provides.build
+.PHONY : CMakeFiles/FINAL.dir/src/image.cpp.o.provides
+
+CMakeFiles/FINAL.dir/src/image.cpp.o.provides.build: CMakeFiles/FINAL.dir/src/image.cpp.o
+
+
 CMakeFiles/FINAL.dir/src/utils.cpp.o: CMakeFiles/FINAL.dir/flags.make
 CMakeFiles/FINAL.dir/src/utils.cpp.o: ../src/utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FINAL.dir/src/utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FINAL.dir/src/utils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FINAL.dir/src/utils.cpp.o -c /home/chenzui/graphics/src/utils.cpp
 
 CMakeFiles/FINAL.dir/src/utils.cpp.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/FINAL.dir/src/utils.cpp.o.provides.build: CMakeFiles/FINAL.dir/src/ut
 
 CMakeFiles/FINAL.dir/src/mesh.cpp.o: CMakeFiles/FINAL.dir/flags.make
 CMakeFiles/FINAL.dir/src/mesh.cpp.o: ../src/mesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FINAL.dir/src/mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FINAL.dir/src/mesh.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FINAL.dir/src/mesh.cpp.o -c /home/chenzui/graphics/src/mesh.cpp
 
 CMakeFiles/FINAL.dir/src/mesh.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/FINAL.dir/src/mesh.cpp.o.provides.build: CMakeFiles/FINAL.dir/src/mes
 
 CMakeFiles/FINAL.dir/src/material.cpp.o: CMakeFiles/FINAL.dir/flags.make
 CMakeFiles/FINAL.dir/src/material.cpp.o: ../src/material.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FINAL.dir/src/material.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FINAL.dir/src/material.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FINAL.dir/src/material.cpp.o -c /home/chenzui/graphics/src/material.cpp
 
 CMakeFiles/FINAL.dir/src/material.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/FINAL.dir/src/material.cpp.o.provides.build: CMakeFiles/FINAL.dir/src
 
 CMakeFiles/FINAL.dir/src/scene_parser.cpp.o: CMakeFiles/FINAL.dir/flags.make
 CMakeFiles/FINAL.dir/src/scene_parser.cpp.o: ../src/scene_parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FINAL.dir/src/scene_parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FINAL.dir/src/scene_parser.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FINAL.dir/src/scene_parser.cpp.o -c /home/chenzui/graphics/src/scene_parser.cpp
 
 CMakeFiles/FINAL.dir/src/scene_parser.cpp.i: cmake_force
@@ -180,6 +204,7 @@ CMakeFiles/FINAL.dir/src/scene_parser.cpp.o.provides.build: CMakeFiles/FINAL.dir
 # Object files for target FINAL
 FINAL_OBJECTS = \
 "CMakeFiles/FINAL.dir/src/main.cpp.o" \
+"CMakeFiles/FINAL.dir/src/image.cpp.o" \
 "CMakeFiles/FINAL.dir/src/utils.cpp.o" \
 "CMakeFiles/FINAL.dir/src/mesh.cpp.o" \
 "CMakeFiles/FINAL.dir/src/material.cpp.o" \
@@ -189,6 +214,7 @@ FINAL_OBJECTS = \
 FINAL_EXTERNAL_OBJECTS =
 
 ../bin/FINAL: CMakeFiles/FINAL.dir/src/main.cpp.o
+../bin/FINAL: CMakeFiles/FINAL.dir/src/image.cpp.o
 ../bin/FINAL: CMakeFiles/FINAL.dir/src/utils.cpp.o
 ../bin/FINAL: CMakeFiles/FINAL.dir/src/mesh.cpp.o
 ../bin/FINAL: CMakeFiles/FINAL.dir/src/material.cpp.o
@@ -196,7 +222,7 @@ FINAL_EXTERNAL_OBJECTS =
 ../bin/FINAL: CMakeFiles/FINAL.dir/build.make
 ../bin/FINAL: deps/vecmath/libvecmath.a
 ../bin/FINAL: CMakeFiles/FINAL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ../bin/FINAL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chenzui/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../bin/FINAL"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FINAL.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -205,6 +231,7 @@ CMakeFiles/FINAL.dir/build: ../bin/FINAL
 .PHONY : CMakeFiles/FINAL.dir/build
 
 CMakeFiles/FINAL.dir/requires: CMakeFiles/FINAL.dir/src/main.cpp.o.requires
+CMakeFiles/FINAL.dir/requires: CMakeFiles/FINAL.dir/src/image.cpp.o.requires
 CMakeFiles/FINAL.dir/requires: CMakeFiles/FINAL.dir/src/utils.cpp.o.requires
 CMakeFiles/FINAL.dir/requires: CMakeFiles/FINAL.dir/src/mesh.cpp.o.requires
 CMakeFiles/FINAL.dir/requires: CMakeFiles/FINAL.dir/src/material.cpp.o.requires

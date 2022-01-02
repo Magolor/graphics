@@ -19,7 +19,7 @@ public:
 
     int size() {return objs.size();}
     void insert(int index, Object3D *obj) {objs.insert(objs.begin()+index,obj);}
-    bool intersect(const Ray &l, Hit &h, float tmin) override {bool f=false; for(auto o:objs) f = o->intersect(l,h,tmin) || f; return f;}
+    bool intersect(const Ray &l, Hit &h, double tmin) override {bool f=false; for(auto o:objs) f = o->intersect(l,h,tmin) || f; return f;}
 };
 
 #endif

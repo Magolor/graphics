@@ -12,7 +12,7 @@ public:
     virtual ~Object3D() = default;
     explicit Object3D(Material *material) : material(material) {}
 
-    virtual bool intersect(const Ray &r, Hit &h, float tmin) = 0;
+    virtual bool intersect(const Ray &r, Hit &h, double tmin) = 0;
 
 protected:
     Material *material;

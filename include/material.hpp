@@ -17,9 +17,9 @@ public:
     Vector4f albedo;
     Vector3f diffuseColor;
     Vector3f specularColor;
-    float refractivity, shininess;
+    double refractivity, shininess;
 
-    explicit Material(const Vector3f &d_color = Vector3f::ZERO, const Vector3f &s_color = Vector3f::ZERO, float s = 0, float r = 1, const Vector4f &a = Vector4f::IND0+Vector4f::IND1)
+    explicit Material(const Vector3f &d_color = Vector3f::ZERO, const Vector3f &s_color = Vector3f::ZERO, double s = 0, double r = 1, const Vector4f &a = Vector4f::IND0+Vector4f::IND1)
         : diffuseColor(d_color), specularColor(s_color), shininess(s), refractivity(r), albedo(a) {}
     explicit Material(const char *filename) {
         std::ifstream f;

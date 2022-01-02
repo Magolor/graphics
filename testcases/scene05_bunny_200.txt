@@ -4,7 +4,7 @@ PerspectiveCamera {
     direction -0.5 -0.5 -1
     up 0 1 0
     angle 25
-    width 1024
+    width 1080
     height 720
 }
 

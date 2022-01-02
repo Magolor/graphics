@@ -1,13 +1,4 @@
 
-PerspectiveCamera {
-    center 0 0 10
-    direction 0 0 -1
-    up 0 1 0
-    angle 30
-    width 1080
-    height 720
-}
-
 Lights {
     numLights 36
 	PointLight {
@@ -193,40 +184,3 @@ Lights {
 
 }
 
-Background {
-    color 0 0 255
-}
-
-Group {
-    numObjects 6
-    MaterialPreset resources/materials/mirror.txt
-    Sphere {
-	center 0 0 0
-        radius 1 
-    }
-    MaterialPreset resources/materials/ivory.txt
-    Sphere {
-	center 1 1 1 
-        radius 0.75
-    }
-    MaterialPreset resources/materials/glass.txt
-    Sphere {
-	center -1 -1 1 
-        radius 0.75
-    }
-    MaterialPreset resources/materials/red_shiny.txt
-    Sphere {
-	center -1 1 -1 
-        radius 0.75
-    }
-    MaterialPreset resources/materials/red_plastic.txt
-    Sphere {
-	center 1 -1 -1 
-        radius 0.75 
-    }
-    MaterialPreset resources/materials/mirror.txt
-    Plane {
-	normal 0 1 0
-        offset -2
-    }
-}

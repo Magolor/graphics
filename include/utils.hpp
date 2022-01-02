@@ -9,10 +9,10 @@
 #define sqr(x) ((x)*(x))
 
 Vector3f reflect(const Vector3f &I, const Vector3f &N);
-Vector3f refract(const Vector3f &I, const Vector3f &N, float refractivity);
+Vector3f refract(const Vector3f &I, const Vector3f &N, double refractivity);
 
 unsigned char ReadByte( FILE* file);
 void WriteByte( FILE* file, unsigned char b );
-unsigned char ClampColorComponent( float c );
+unsigned char ClampColorComponent( double c );
 
 #endif //UTILS_H

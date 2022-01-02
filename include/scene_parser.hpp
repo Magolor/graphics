@@ -81,8 +81,8 @@ public:
     Light **getLights() const {return lights;}
     Light *getLight(int i) const {assert(i>=0 && i<nLights); return lights[i];}
     Material *getMaterial(int i) const {assert(i>=0 && i<nMaterials); return materials[i];}
-    bool shadowTracing(const Ray &r, const Hit &hit, const Vector3f &dirToLight, float eps = 1e-3) const;
-    Vector3f rayTracing(const Ray &r, const Vector3f &background, int depth = 4, float eps = 1e-3) const;
+    bool shadowTracing(const Ray &r, const Hit &hit, const Vector3f &dirToLight, double eps = 1e-7) const;
+    Vector3f rayTracing(const Ray &r, const Vector3f &background, int depth = 4, double eps = 1e-7) const;
     Image render(int depth = 4) const;
 
 
@@ -131,8 +131,8 @@ private:
         Vector3f up = readVector3f();
         getToken(token);
         assert (!strcmp(token, "angle"));
-        float angle_degrees = readFloat();
-        float angle_radians = DegreesToRadians(angle_degrees);
+        double angle_degrees = readDouble();
+        double angle_radians = DegreesToRadians(angle_degrees);
         getToken(token);
         assert (!strcmp(token, "width"));
         int width = readInt();
@@ -194,6 +194,7 @@ private:
     
     Light *parseDirectionalLight() {
         char token[MAX_PARSER_TOKEN_LENGTH];
+        double intensity = 1.0;
         getToken(token);
         assert (!strcmp(token, "{"));
         getToken(token);
@@ -203,12 +204,17 @@ private:
         assert (!strcmp(token, "color"));
         Vector3f color = readVector3f();
         getToken(token);
+        if(!strcmp(token, "intensity")){
+            intensity = readDouble();
+            getToken(token);
+        }
         assert (!strcmp(token, "}"));
-        return new DirectionalLight(direction, color);
+        return new DirectionalLight(direction, color, intensity);
     }
     
     Light *parsePointLight() {
         char token[MAX_PARSER_TOKEN_LENGTH];
+        double intensity = 1.0;
         getToken(token);
         assert (!strcmp(token, "{"));
         getToken(token);
@@ -218,8 +224,12 @@ private:
         assert (!strcmp(token, "color"));
         Vector3f color = readVector3f();
         getToken(token);
+        if(!strcmp(token, "intensity")){
+            intensity = readDouble();
+            getToken(token);
+        }
         assert (!strcmp(token, "}"));
-        return new PointLight(position, color);
+        return new PointLight(position, color, intensity);
     }
     // ====================================================================
     // ====================================================================
@@ -256,7 +266,7 @@ private:
         filename[0] = 0;
         Vector4f albedo(1, 1, 0, 0);
         Vector3f diffuseColor(1, 1, 1), specularColor(0, 0, 0);
-        float shininess = 0, refractivity = 1;
+        double shininess = 0, refractivity = 1;
         getToken(token);
         assert (!strcmp(token, "{"));
         while (true) {
@@ -266,9 +276,9 @@ private:
             } else if (strcmp(token, "specularColor") == 0) {
                 specularColor = readVector3f();
             } else if (strcmp(token, "shininess") == 0) {
-                shininess = readFloat();
+                shininess = readDouble();
             } else if (strcmp(token, "refractivity") == 0) {
-                refractivity = readFloat();
+                refractivity = readDouble();
             } else if (strcmp(token, "albedo") == 0) {
                 albedo = readVector4f();
             } else if (strcmp(token, "texture") == 0) {
@@ -372,7 +382,7 @@ private:
         Vector3f center = readVector3f();
         getToken(token);
         assert (!strcmp(token, "radius"));
-        float radius = readFloat();
+        double radius = readDouble();
         getToken(token);
         assert (!strcmp(token, "}"));
         assert (current_material != nullptr);
@@ -388,7 +398,7 @@ private:
         Vector3f normal = readVector3f();
         getToken(token);
         assert (!strcmp(token, "offset"));
-        float offset = readFloat();
+        double offset = readDouble();
         getToken(token);
         assert (!strcmp(token, "}"));
         assert (current_material != nullptr);
@@ -448,22 +458,22 @@ private:
                 Vector3f s = readVector3f();
                 matrix = matrix * Matrix4f::scaling(s[0], s[1], s[2]);
             } else if (!strcmp(token, "UniformScale")) {
-                float s = readFloat();
+                double s = readDouble();
                 matrix = matrix * Matrix4f::uniformScaling(s);
             } else if (!strcmp(token, "Translate")) {
                 matrix = matrix * Matrix4f::translation(readVector3f());
             } else if (!strcmp(token, "XRotate")) {
-                matrix = matrix * Matrix4f::rotateX(DegreesToRadians(readFloat()));
+                matrix = matrix * Matrix4f::rotateX(DegreesToRadians(readDouble()));
             } else if (!strcmp(token, "YRotate")) {
-                matrix = matrix * Matrix4f::rotateY(DegreesToRadians(readFloat()));
+                matrix = matrix * Matrix4f::rotateY(DegreesToRadians(readDouble()));
             } else if (!strcmp(token, "ZRotate")) {
-                matrix = matrix * Matrix4f::rotateZ(DegreesToRadians(readFloat()));
+                matrix = matrix * Matrix4f::rotateZ(DegreesToRadians(readDouble()));
             } else if (!strcmp(token, "Rotate")) {
                 getToken(token);
                 assert (!strcmp(token, "{"));
                 Vector3f axis = readVector3f();
-                float degrees = readFloat();
-                float radians = DegreesToRadians(degrees);
+                double degrees = readDouble();
+                double radians = DegreesToRadians(degrees);
                 matrix = matrix * Matrix4f::rotation(axis, radians);
                 getToken(token);
                 assert (!strcmp(token, "}"));
@@ -473,7 +483,7 @@ private:
                 assert (!strcmp(token, "{"));
                 for (int j = 0; j < 4; j++) {
                     for (int i = 0; i < 4; i++) {
-                        float v = readFloat();
+                        double v = readDouble();
                         matrix2(i, j) = v;
                     }
                 }
@@ -510,8 +520,8 @@ private:
     }
     
     Vector4f readVector4f() {
-        float x, y, z, w;
-        int count = fscanf(file, "%f %f %f %f", &x, &y, &z, &w);
+        double x, y, z, w;
+        int count = fscanf(file, "%lf %lf %lf %lf", &x, &y, &z, &w);
         if (count != 4) {
             printf("Error trying to read 4 floats to make a Vector3f\n");
             assert (0);
@@ -520,8 +530,8 @@ private:
     }
     
     Vector3f readVector3f() {
-        float x, y, z;
-        int count = fscanf(file, "%f %f %f", &x, &y, &z);
+        double x, y, z;
+        int count = fscanf(file, "%lf %lf %lf", &x, &y, &z);
         if (count != 3) {
             printf("Error trying to read 3 floats to make a Vector3f\n");
             assert (0);
@@ -529,11 +539,11 @@ private:
         return Vector3f(x, y, z);
     }
     
-    float readFloat() {
-        float answer;
-        int count = fscanf(file, "%f", &answer);
+    double readDouble() {
+        double answer;
+        int count = fscanf(file, "%lf", &answer);
         if (count != 1) {
-            printf("Error trying to read 1 float\n");
+            printf("Error trying to read 1 double\n");
             assert (0);
         }
         return answer;

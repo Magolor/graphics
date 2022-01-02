@@ -31,7 +31,7 @@ private:
     int getToken(char token[MAX_PARSER_TOKEN_LENGTH]);
 
     Vector3f readVector3f();
-    float readFloat();
+    double readDouble();
     int readInt();
 
     FILE *file;
@@ -127,7 +127,7 @@ int CanvasParser::getToken(char token[MAX_PARSER_TOKEN_LENGTH]) {
 }
 
 Vector3f CanvasParser::readVector3f() {
-    float x, y, z;
+    double x, y, z;
     int count = fscanf(file, "%f %f %f", &x, &y, &z);
     if (count != 3) {
         printf("Error trying to read 3 floats to make a Vector3f\n");
@@ -136,11 +136,11 @@ Vector3f CanvasParser::readVector3f() {
     return Vector3f(x, y, z);
 }
 
-float CanvasParser::readFloat() {
-    float answer;
+double CanvasParser::readDouble() {
+    double answer;
     int count = fscanf(file, "%f", &answer);
     if (count != 1) {
-        printf("Error trying to read 1 float\n");
+        printf("Error trying to read 1 double\n");
         assert (0);
     }
     return answer;

@@ -18,7 +18,7 @@ public:
     Transform(const Matrix4f &m, Object3D *obj) : o(obj), T(m.inverse()) {}
     ~Transform() {}
 
-    virtual bool intersect(const Ray &r, Hit &h, float tmin) {
+    virtual bool intersect(const Ray &r, Hit &h, double tmin) {
         Vector3f trSource = transformPoint(T, r.o);
         Vector3f trDirection = transformDirection(T, r.d);
         Ray tr(trSource, trDirection); bool inter = o->intersect(tr, h, tmin);

@@ -28,14 +28,14 @@ protected:
 
 class PerspectiveCamera : public Camera {
 public:
-    PerspectiveCamera(const Vector3f &center, const Vector3f &direction, const Vector3f &up, int imgW, int imgH, float angle)
+    PerspectiveCamera(const Vector3f &center, const Vector3f &direction, const Vector3f &up, int imgW, int imgH, double angle)
          : Camera(center, direction, up, imgW, imgH), focal(h/2/tan(angle/2)) {}
 
     Ray generateRay(const Vector2f &point) override {
         return Ray(center, (Matrix3f(horizontal, -up, direction)*Vector3f(point[0]-w/2,h/2-point[1],focal)).normalized());
     }
 
-    float focal;
+    double focal;
 };
 
 #endif //CAMERA_H

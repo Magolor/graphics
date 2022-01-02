@@ -14,7 +14,7 @@ public:
     Ray(const Vector3f &orig, const Vector3f &dir) : o(orig), d(dir) {}
     Ray(const Ray &r) : o(r.o), d(r.d) {}
 
-    Vector3f p(float t) const {return o + d * t;}
+    Vector3f p(double t) const {return o + d * t;}
 };
 
 inline std::ostream &operator<<(std::ostream &os, const Ray &r) {

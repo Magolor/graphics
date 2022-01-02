@@ -1,52 +1,17 @@
 from pyheaven import *
 import numpy as np
 
-scene = ("""
-Group {
-    numObjects 6
-    MaterialPreset resources/materials/mirror.txt
-    Sphere {
-	center 0 0 0
-        radius 1 
-    }
-    MaterialPreset resources/materials/ivory.txt
-    Sphere {
-	center 1 1 1 
-        radius 0.75
-    }
-    MaterialPreset resources/materials/glass.txt
-    Sphere {
-	center -1 -1 1 
-        radius 0.75
-    }
-    MaterialPreset resources/materials/red_shiny.txt
-    Sphere {
-	center -1 1 -1 
-        radius 0.75
-    }
-    MaterialPreset resources/materials/red_plastic.txt
-    Sphere {
-	center 1 -1 -1 
-        radius 0.75 
-    }
-    MaterialPreset resources/materials/mirror.txt
-    Plane {
-	normal 0 1 0
-        offset -2
-    }
-}
-""")
-
 if __name__=="__main__":
     args = HeavenArguments.from_parser([
-        IntArgumentDescriptor("W",default=1080),
-        IntArgumentDescriptor("H",default=720),
+        IntArgumentDescriptor("W",default=1920),
+        IntArgumentDescriptor("H",default=1080),
+        StrArgumentDescriptor("scene",default="resources/scene/debug_scene_00.txt"),
         StrArgumentDescriptor("texture",default="resources/textures/envmap.jpg"),
+        StrArgumentDescriptor("softlights",short="sl",default=""),
         StrArgumentDescriptor("color",default="0 0 255"),
-        StrArgumentDescriptor("softlights",default=""),
     ])
     CMD(f"python scripts/build_softlights.py {args.softlights} > resources/lights/softlights.txt")
-    softlights = open("resources/lights/softlights.txt","r").read()
+    softlights = open("resources/lights/softlights.txt","r").read(); scene = open(args.scene, "r").read();
 print(
 """
 PerspectiveCamera {
@@ -61,8 +26,8 @@ PerspectiveCamera {
 <softlights>
 
 Background {
-    texture <texture>
     color <color>
+    texture <texture>
 }
 
 <scene>

@@ -27,10 +27,11 @@ mkdir -p output
 # bin/FINAL testcases/scene07_shine.txt output/scene07.bmp
 
 python  scripts/build_scene.py \
-        --W 1080 \
-        --H 720 \
-        --softlights "-x 0 -y 5 -z 5 -n 25 -s 0.15 -i 0.9 -c \"0.9 0.9 0.9\"" \
-        --texture "resources/textures/envmap.jpg" \
+        --W 1920 \
+        --H 1080 \
+        --softlights "-x 0 -y 5 -z 5 -n 36 -s 0.2 -i 1.2" \
+        --scene "resources/scene/debug_scene_00.txt" \
+        --texture "resources/textures/mlp.tga" \
         --color "0 0 255" \
         > testcases/scene.txt
 bin/FINAL testcases/scene.txt output/scene.bmp

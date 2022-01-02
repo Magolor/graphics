@@ -9,14 +9,13 @@ ADD_SUBDIRECTORY(deps/vecmath)
 
 SET(FINAL_SOURCES
         src/main.cpp
-        src/image.cpp
         src/utils.cpp
         src/mesh.cpp
         src/material.cpp
         src/scene_parser.cpp)
 
 SET(FINAL_INCLUDES
-        include/stb_image.h
+        include/tqdm.h
         include/utils.hpp
         include/camera.hpp
         include/group.hpp

@@ -84,9 +84,9 @@ public:
     Light **getLights() const {return lights;}
     Light *getLight(int i) const {assert(i>=0 && i<nLights); return lights[i];}
     Material *getMaterial(int i) const {assert(i>=0 && i<nMaterials); return materials[i];}
-    bool shadowTracing(const Ray &r, const Hit &hit, const Vector3f &dirToLight, double eps = 1e-7) const;
-    Vector3f rayTracing(const Ray &r, const Vector3f &background, int depth = 4, double eps = 1e-7) const;
-    Image render(int depth = 4) const;
+    bool shadowTracing(const Ray &r, const Hit &hit, const Vector3f &dirToLight, double eps = 1e-6) const;
+    Vector3f rayTracing(const Ray &r, const Vector3f &background, int depth = 4, double weight = 1.0, double eps = 1e-6) const;
+    Image render(int depth = 8) const;
 
 private:
     void parseFile() {
@@ -147,8 +147,10 @@ private:
     }
     
     void parseBackground() {
+        bool texture_initialized = false;
         char token[MAX_PARSER_TOKEN_LENGTH];
         char filename[MAX_PARSER_TOKEN_LENGTH];
+        filename[0] = 0;
         // read in the background color
         getToken(token);
         assert (!strcmp(token, "{"));
@@ -160,12 +162,15 @@ private:
                 color = readVector3f();
             } else if (!strcmp(token, "texture")) {
                 getToken(filename);
-                texture = readTexture(filename);
+                texture = Image::LoadTGA(filename);;
+                texture_initialized = true;
             } else {
                 printf("Unknown token in parseBackground: '%s'\n", token);
                 assert(0);
             }
         }
+        if(!texture_initialized)
+            texture = new Image;
     }
     
     // ====================================================================
@@ -523,10 +528,6 @@ private:
             return 0;
         }
         return 1;
-    }
-    
-    Image *readTexture(const char *filename) {
-        return new Image(filename);
     }
 
     Vector4f readVector4f() {

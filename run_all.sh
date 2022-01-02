@@ -15,7 +15,7 @@ cd ..
 
 # Run all testcases. 
 # You can comment some lines to disable the run of specific examples.
-rm -rf output
+# rm -rf output
 mkdir -p output
 # bin/FINAL testcases/scene00_debug.txt output/scene00.bmp
 # bin/FINAL testcases/scene01_basic.txt output/scene01.bmp

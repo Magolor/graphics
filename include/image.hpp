@@ -41,7 +41,9 @@ public:
 
     void paint(const Vector3f &color = Vector3f::ZERO) {for(int i = 0; i < w*h; data[i++] = color);}
     const Vector3f &get(int x, int y) const {assert(x>=0&&x<w&&y>=0&&y<h); return data[y*w+x];}
-    void set(int x, int y, const Vector3f &color) {assert(x>=0&&x<w&&y>=0&&y<h); data[y*w+x] = max(0.,min(color,1.));}
+    void set(int x, int y, const Vector3f &color) {assert(x>=0&&x<w&&y>=0&&y<h);
+        data[y*w+x] = Vector3f(max(0.,min(color[0],1.)),max(0.,min(color[1],1.)),max(0.,min(color[2],1.)));
+    }
 
     void flip(int axis) {
         assert(axis==0||axis==1); Vector3f tmp;

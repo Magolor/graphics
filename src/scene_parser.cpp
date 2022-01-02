@@ -8,7 +8,7 @@ bool SceneParser::shadowTracing(const Ray &r, const Hit &h, const Vector3f &dirT
 }
 
 Vector3f SceneParser::rayTracing(const Ray &r, const Vector3f &background, int depth, double weight, double eps) const {
-    Hit h = Hit(); if(weight < 1e-4) return Vector3f::ZERO; if( !group->intersect(r, h, 0) ){ if(texture->data==nullptr) return background;
+    Hit h = Hit(); if(weight < 1e-6) return Vector3f::ZERO; if( !group->intersect(r, h, 0) ){ if(texture->data==nullptr) return background;
         double theta = acosl(min(max(r.d[1]/r.d.length(),-1.),1.)), phi = atan2l(r.d[2],r.d[0])+M_PI;
         return texture->get(max(min(int(phi/2./M_PI*texture->w),texture->w-1),0), max(min(int(theta/M_PI*texture->h),texture->h-1),0));
     }
@@ -22,11 +22,11 @@ Vector3f SceneParser::rayTracing(const Ray &r, const Vector3f &background, int d
         c += !shadowTracing(r, h, d) ? l->getIntensity()*h.material->Shade(r, h, d, lc) : Vector3f::ZERO; return c;
 }
 
-Image SceneParser::render(int depth) const {
+void SceneParser::render(const char *filename, int depth) const {
     Image img(camera->w, camera->h); Ray r; Vector3f c; tqdm bar;
     #pragma omp parallel for
     for(register int x = 0, y; x < camera->w; bar.progress(x, camera->w), x++)
         for(y = 0; y < camera->h; y++)
             img.set(x,y,rayTracing(camera->generateRay(Vector2f(x,y)), color, depth));
-    bar.finish(); return img;
+    bar.finish();
 }

@@ -86,7 +86,7 @@ public:
     Material *getMaterial(int i) const {assert(i>=0 && i<nMaterials); return materials[i];}
     bool shadowTracing(const Ray &r, const Hit &hit, const Vector3f &dirToLight, double eps = 1e-6) const;
     Vector3f rayTracing(const Ray &r, const Vector3f &background, int depth = 4, double weight = 1.0, double eps = 1e-6) const;
-    Image render(int depth = 8) const;
+    void render(const char *filename, int depth = 8) const;
 
 private:
     void parseFile() {

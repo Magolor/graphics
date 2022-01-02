@@ -1,5 +1,5 @@
 Group {
-    numObjects 7
+    numObjects 6
     MaterialPreset resources/materials/mirror.txt
     Sphere {
 	center 0 0 0
@@ -29,10 +29,5 @@ Group {
     Plane {
 	normal 0 1 0
         offset -2
-    }
-    MaterialPreset resources/materials/aperture.txt
-    Plane {
-	normal 0 0 -1
-        offset 0.1
     }
 }

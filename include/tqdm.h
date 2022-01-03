@@ -131,10 +131,10 @@ class tqdm {
                 }
 
                 // learn an appropriate period length to avoid spamming stdout
-                // and slowing down the loop, shoot for ~2.5kHz and smooth over 3 seconds
+                // and slowing down the loop, shoot for ~1kHz and smooth over 3 seconds
                 if (nupdates > 10) {
-                    period = (int)( std::min(std::max((1.0/2500)*curr/dt_tot,1.0), 5e5));
-                    smoothing = 2500*3;
+                    period = (int)( std::min(std::max((1.0/1000)*curr/dt_tot,1.0), 5e5));
+                    smoothing = 1000*3;
                 }
                 double peta = (tot-curr)/avgrate;
                 double pct = (double)curr/(tot*0.01);

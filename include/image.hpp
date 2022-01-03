@@ -43,7 +43,7 @@ public:
     void paint(const Vector3f &color = Vector3f::ZERO) {for(int i = 0; i < w*h; data[i++] = color);}
     const Vector3f &get(int x, int y) const {assert(x>=0&&x<w&&y>=0&&y<h); return data[y*w+x];}
     void set(int x, int y, const Vector3f &color) {assert(x>=0&&x<w&&y>=0&&y<h);
-        data[y*w+x] = Vector3f(max(0.,min(color[0],1.)),max(0.,min(color[1],1.)),max(0.,min(color[2],1.)));
+        data[y*w+x] = Vector3f(std::max(0.,std::min(color[0],1.)),std::max(0.,std::min(color[1],1.)),std::max(0.,std::min(color[2],1.)));
     }
 
     void flip(int axis) {
@@ -62,7 +62,7 @@ public:
             img->set(i<<1  ,j<<1  ,get(i,j));
             img->set(i<<1  ,j<<1|1,j<h-1?(get(i,j)+get(i,j+1))/2.:get(i,j));
             img->set(i<<1|1,j<<1  ,i<w-1?(get(i,j)+get(i+1,j))/2.:get(i,j));
-            img->set(i<<1|1,j<<1|1,(get(i,j)+get(min(i+1,w-1),j)+get(i,min(j+1,h-1))+get(min(i+1,w-1),min(j+1,h-1)))/4.);
+            img->set(i<<1|1,j<<1|1,(get(i,j)+get(std::min(i+1,w-1),j)+get(i,std::min(j+1,h-1))+get(std::min(i+1,w-1),std::min(j+1,h-1)))/4.);
         }   return img;
     }
 
@@ -70,9 +70,9 @@ public:
         assert(!(w&1)&&!(h&1)); Image* img = new Image(w>>1,h>>1);
         for(int i = 0, j, x = 0, y; i < img->w; i++, x += 2) for(j = 0, y = 0; j < img->h; j++, y += 2)
             img->set(i,j,(
-                get(max(x-1,0),max(y-1,0))+get(x,max(y-1,0))+get(x+1,max(y-1,0))+
-                get(max(x-1,0),y)+2*get(x,y)+get(x+1,y)+
-                get(max(x-1,0),y+1)+get(x,y+1)+get(x+1,y+1)
+                get(std::max(x-1,0),std::max(y-1,0))+get(x,std::max(y-1,0))+get(x+1,std::max(y-1,0))+
+                get(std::max(x-1,0),y)+2*get(x,y)+get(x+1,y)+
+                get(std::max(x-1,0),y+1)+get(x,y+1)+get(x+1,y+1)
             )/10.);
         return img;
     }

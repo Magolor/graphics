@@ -1,5 +1,6 @@
 #ifndef VECTOR_4F_H
 #define VECTOR_4F_H
+#include <iostream>
 
 class Vector2f;
 class Vector3f;
@@ -104,5 +105,9 @@ Vector4f operator / ( const Vector4f& v, double f );
 
 bool operator == ( const Vector4f& v0, const Vector4f& v1 );
 bool operator != ( const Vector4f& v0, const Vector4f& v1 );
+
+inline std::ostream &operator<<(std::ostream &os, const Vector4f &v) {
+    os << "(" << v[0] << ", " << v[1] << ", " << v[2] << ", " << v[3] << ")"; return os;
+}
 
 #endif // VECTOR_4F_H

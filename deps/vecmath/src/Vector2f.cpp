@@ -112,6 +112,16 @@ double Vector2f::absSquared() const
     return m_elements[0] * m_elements[0] + m_elements[1] * m_elements[1];
 }
 
+double Vector2f::length() const
+{
+	return sqrt( m_elements[0] * m_elements[0] + m_elements[1] * m_elements[1] );
+}
+
+double Vector2f::squaredLength() const
+{
+    return m_elements[0] * m_elements[0] + m_elements[1] * m_elements[1];
+}
+
 void Vector2f::normalize()
 {
     double norm = abs();

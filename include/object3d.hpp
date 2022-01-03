@@ -8,14 +8,13 @@
 // Base class for all 3d entities.
 class Object3D {
 public:
+    Material *material;
+
     Object3D() : material(nullptr) {}
     virtual ~Object3D() = default;
     explicit Object3D(Material *material) : material(material) {}
 
     virtual bool intersect(const Ray &r, Hit &h, double tmin) = 0;
-
-protected:
-    Material *material;
 };
 
 #endif

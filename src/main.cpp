@@ -5,13 +5,11 @@
 #include <cmath>
 #include <string>
 #include <iostream>
-#include <ctime>
 #include "scene_parser.hpp"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    int start = clock();
     for (int argNum = 1; argNum < argc; ++argNum) {
         std::cout << "Argument " << argNum << " is: " << argv[argNum] << std::endl;
     }
@@ -24,9 +22,7 @@ int main(int argc, char *argv[]) {
     string outputFile = argv[2];  // only bmp is allowed.
 
     SceneParser scene(inputFile.c_str());
-    scene.render(outputFile.c_str(), 8, true);
-    int end = clock();
-    printf("Total time elapsed: %.2fs.\n",(1.*(end-start)/CLOCKS_PER_SEC));
+    scene.render(outputFile.c_str(), 4, true);
     return 0;
 }
 

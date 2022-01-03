@@ -1,6 +1,6 @@
 
 PerspectiveCamera {
-    center 0 0 10
+    center 0.0001 0.0001 10
     direction 0 0 -1
     up 0 1 0
     angle 30

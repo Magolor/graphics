@@ -1,8 +1,10 @@
 #ifndef SCENE_PARSER_H
 #define SCENE_PARSER_H
 
+#include <cstring>
 #include <cassert>
 #include <vecmath.h>
+#include <unordered_map>
 
 #include "camera.hpp"
 #include "light.hpp"
@@ -84,6 +86,11 @@ public:
     Light **getLights() const {return lights;}
     Light *getLight(int i) const {assert(i>=0 && i<nLights); return lights[i];}
     Material *getMaterial(int i) const {assert(i>=0 && i<nMaterials); return materials[i];}
+    Material *getNamedMaterial(const char *filename) {
+        std::string s(filename); if(named_materials.count(s)==0){
+            named_materials[s] = new Material(filename);
+        }   return named_materials[s];
+    }
     bool shadowTracing(const Ray &r, const Hit &hit, const Vector3f &dirToLight, double eps = 1e-6) const;
     Vector3f rayTracing(const Ray &r, const Vector3f &background, int depth = 4, double weight = 1.0, double eps = 1e-6) const;
     void render(const char *filename, int depth = 8, bool preview = false) const;
@@ -147,7 +154,6 @@ private:
     }
     
     void parseBackground() {
-        bool texture_initialized = false;
         char token[MAX_PARSER_TOKEN_LENGTH];
         char filename[MAX_PARSER_TOKEN_LENGTH];
         filename[0] = 0;
@@ -162,15 +168,12 @@ private:
                 color = readVector3f();
             } else if (!strcmp(token, "texture")) {
                 getToken(filename);
-                texture = Image::LoadTGA(filename);;
-                texture_initialized = true;
+                texture = Image::LoadTGA(filename);
             } else {
                 printf("Unknown token in parseBackground: '%s'\n", token);
                 assert(0);
             }
         }
-        if(!texture_initialized)
-            texture = new Image;
     }
     
     // ====================================================================
@@ -276,9 +279,9 @@ private:
         char filename[MAX_PARSER_TOKEN_LENGTH];
         filename[0] = 0;
         Vector4f albedo(1, 1, 0, 0);
-        Vector3f diffuseColor(1, 1, 1), specularColor(0, 0, 0);
+        Vector3f diffuseColor(1, 1, 1), specularColor(0, 0, 0), ambienceColor(0, 0, 0);
         double shininess = 0, refractivity = 1;
-        getToken(token);
+        getToken(token); Image *material_texture = nullptr;
         assert (!strcmp(token, "{"));
         while (true) {
             getToken(token);
@@ -286,6 +289,8 @@ private:
                 diffuseColor = readVector3f();
             } else if (strcmp(token, "specularColor") == 0) {
                 specularColor = readVector3f();
+            } else if (strcmp(token, "ambienceColor") == 0) {
+                ambienceColor = readVector3f();
             } else if (strcmp(token, "shininess") == 0) {
                 shininess = readDouble();
             } else if (strcmp(token, "refractivity") == 0) {
@@ -293,14 +298,14 @@ private:
             } else if (strcmp(token, "albedo") == 0) {
                 albedo = readVector4f();
             } else if (strcmp(token, "texture") == 0) {
-                // Optional: read in texture and draw it.
                 getToken(filename);
+                material_texture = Image::LoadTGA(filename);
             } else {
                 assert (!strcmp(token, "}"));
                 break;
             }
         }
-        auto *answer = new Material(diffuseColor, specularColor, shininess, refractivity, albedo);
+        auto *answer = new Material(diffuseColor, specularColor, ambienceColor, shininess, refractivity, albedo, material_texture);
         return answer;
     }
     
@@ -365,7 +370,7 @@ private:
             } else if (!strcmp(token, "MaterialPreset")) {
                 // change the current material
                 getToken(filename);
-                current_material = new Material(filename);
+                current_material = getNamedMaterial(filename);
             } else {
                 Object3D *object = parseObject(token);
                 assert (object != nullptr);
@@ -574,6 +579,7 @@ private:
     Light **lights;
     Material **materials;
     Material *current_material;
+    unordered_map<std::string,Material*> named_materials;
 };
 
 #endif // SCENE_PARSER_H

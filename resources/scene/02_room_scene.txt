@@ -7,14 +7,14 @@ Group {
             obj_file resources/objects/room_right_wall.obj
         }
     }
-    MaterialPreset resources/materials/glass.txt
+    MaterialPreset resources/materials/mirror.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_left_wall.obj
         }
     }
-    MaterialPreset resources/materials/mirror.txt
+    MaterialPreset resources/materials/white_plastic.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
@@ -44,9 +44,11 @@ Group {
     }
     MaterialPreset resources/materials/ivory.txt
     Transform {
-        Scale  3 3 3
+        Scale  0.2 0.2 0.2
+        Translate -7 -8.4 -7
+        YRotate  20
         TriangleMesh {
-            obj_file resources/objects/bunny_200.obj
+            obj_file resources/objects/portal_cube.obj
         }
     }
 }

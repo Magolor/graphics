@@ -1,0 +1,10 @@
+Group {
+    numObjects 1
+    MaterialPreset resources/materials/red_plastic.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        TriangleMesh {
+            obj_file resources/objects/room_floor.obj
+        }
+    }
+}

@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     string outputFile = argv[2];  // only bmp is allowed.
 
     SceneParser scene(inputFile.c_str());
-    scene.render(outputFile.c_str(), 8);
+    scene.render(outputFile.c_str(), 8, true);
     int end = clock();
     printf("Total time elapsed: %.2fs.\n",(1.*(end-start)/CLOCKS_PER_SEC));
     return 0;

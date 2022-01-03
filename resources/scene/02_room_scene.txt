@@ -1,0 +1,52 @@
+Group {
+    numObjects 7
+    MaterialPreset resources/materials/blue_plastic.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        TriangleMesh {
+            obj_file resources/objects/room_right_wall.obj
+        }
+    }
+    MaterialPreset resources/materials/glass.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        TriangleMesh {
+            obj_file resources/objects/room_left_wall.obj
+        }
+    }
+    MaterialPreset resources/materials/mirror.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        TriangleMesh {
+            obj_file resources/objects/room_floor.obj
+        }
+    }
+    MaterialPreset resources/materials/white_plastic.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        TriangleMesh {
+            obj_file resources/objects/room_front_wall.obj
+        }
+    }
+    MaterialPreset resources/materials/green_plastic.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        TriangleMesh {
+            obj_file resources/objects/room_celling.obj
+        }
+    }
+    MaterialPreset resources/materials/glass.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        TriangleMesh {
+            obj_file resources/objects/room_light.obj
+        }
+    }
+    MaterialPreset resources/materials/ivory.txt
+    Transform {
+        Scale  3 3 3
+        TriangleMesh {
+            obj_file resources/objects/bunny_200.obj
+        }
+    }
+}

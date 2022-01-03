@@ -1,0 +1,5 @@
+albedo 0.9 0.2 0.0 0.0
+diffuseColor 0.9 0.9 0.9 
+specularColor 0.0 0.0 0.0
+refractivity 1.0
+shininess 0.0

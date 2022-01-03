@@ -1,0 +1,37 @@
+Group {
+    numObjects 7
+    MaterialPreset resources/materials/mirror.txt
+    Sphere {
+	center 0 0 0
+        radius 1 
+    }
+    MaterialPreset resources/materials/ivory.txt
+    Sphere {
+	center 1 1 1 
+        radius 0.75
+    }
+    MaterialPreset resources/materials/glass.txt
+    Sphere {
+	center -1 -1 1 
+        radius 0.75
+    }
+    MaterialPreset resources/materials/red_shiny.txt
+    Sphere {
+	center -1 1 -1 
+        radius 0.75
+    }
+    MaterialPreset resources/materials/red_plastic.txt
+    Sphere {
+	center 1 -1 -1 
+        radius 0.75 
+    }
+    MaterialPreset resources/materials/metal.txt
+    Plane {
+	normal 0 1 0
+        offset -2
+    }
+    MaterialPreset resources/materials/red_shiny.txt
+    TriangleMesh {
+        obj_file resources/objects/bunny_200.obj
+    }
+}

@@ -1,0 +1,14 @@
+Group {
+    numObjects 2
+    MaterialPreset resources/materials/mirror.txt
+    TriangleMesh {
+        obj_file resources/objects/room.obj
+    }
+    MaterialPreset resources/materials/ivory.txt
+    Transform {
+        Scale  2 2 2
+        TriangleMesh {
+            obj_file resources/objects/bunny_200.obj
+        }
+    }
+}

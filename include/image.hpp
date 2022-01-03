@@ -37,6 +37,7 @@ public:
     Image() : w(0), h(0), data(nullptr) {}
     Image(int w, int h) : w(w), h(h), data(new Vector3f[w*h]) {}
     Image(int w, int h, const Vector3f &color) : w(w), h(h), data(new Vector3f[w*h]) {paint(color);}
+    Image(const Image &img) : w(img.w), h(img.h) {delete[] data; data = img.data;}
     ~Image() {delete[] data;}
 
     void paint(const Vector3f &color = Vector3f::ZERO) {for(int i = 0; i < w*h; data[i++] = color);}
@@ -53,6 +54,27 @@ public:
         else
             for(int s = 0, e = w-1, y; s < e; e--, s++)
                 for(y = 0; y < h; tmp=data[y*w+s],data[y*w+s]=data[y*w+e],data[y*w+e]=tmp, y++);
+    }
+
+    Image *x2() {
+        Image* img = new Image(w<<1,h<<1);
+        for(int i = 0, j; i < w; i++) for(j = 0; j < h; j++){
+            img->set(i<<1  ,j<<1  ,get(i,j));
+            img->set(i<<1  ,j<<1|1,j<h-1?(get(i,j)+get(i,j+1))/2.:get(i,j));
+            img->set(i<<1|1,j<<1  ,i<w-1?(get(i,j)+get(i+1,j))/2.:get(i,j));
+            img->set(i<<1|1,j<<1|1,(get(i,j)+get(min(i+1,w-1),j)+get(i,min(j+1,h-1))+get(min(i+1,w-1),min(j+1,h-1)))/4.);
+        }   return img;
+    }
+
+    Image *d2() {
+        assert(!(w&1)&&!(h&1)); Image* img = new Image(w>>1,h>>1);
+        for(int i = 0, j, x = 0, y; i < img->w; i++, x += 2) for(j = 0, y = 0; j < img->h; j++, y += 2)
+            img->set(i,j,(
+                get(max(x-1,0),max(y-1,0))+get(x,max(y-1,0))+get(x+1,max(y-1,0))+
+                get(max(x-1,0),y)+2*get(x,y)+get(x+1,y)+
+                get(max(x-1,0),y+1)+get(x,y+1)+get(x+1,y+1)
+            )/10.);
+        return img;
     }
 
     static Image *LoadPPM(const char *filename) {

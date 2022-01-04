@@ -8,21 +8,27 @@ newmtl Main
 	d 1
 	illum 2
 	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
 	Ns 20
 	map_Kd resources/textures/Main_baseColor.tga
 newmtl Lights
-	Ka 0.05 0.05 0.05
-	Kd 0.1078058625 0.1234319681 0.33108273649999996
-	d 0.9163490854
+	Ka 0.2 0.2 0.2
+	Kd 0 1.5 1.5
+	d 1
 	illum 2
 	Ks 0.2 0.2 0.2
-	Ns 20
+	Ke 0.2 0.2 0.2
+	Kt 0.2 0.2 0.2
+	Ns 40
 newmtl Border
 	Ka 0.05 0.05 0.05
 	Kd 0.4712271341 0.4712271341 0.4712271341
 	d 1
 	illum 2
 	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
 	Ns 20
 	map_Kd resources/textures/Border_baseColor.tga
 newmtl Heart
@@ -31,6 +37,8 @@ newmtl Heart
 	d 1
 	illum 2
 	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
 	Ns 20
 	map_Kd resources/textures/Heart_baseColor.tga
 newmtl Contour
@@ -39,27 +47,107 @@ newmtl Contour
 	d 1
 	illum 2
 	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
 	Ns 20
-newmtl Lights
-	Ka 0.05 0.05 0.05
-	Kd 0.1078058625 0.1234319681 0.33108273649999996
-	d 0.9163490854
-	illum 2
-	Ks 0.2 0.2 0.2
-	Ns 20
-newmtl Border
-	Ka 0.05 0.05 0.05
-	Kd 0.4712271341 0.4712271341 0.4712271341
-	d 1
-	illum 2
-	Ks 0.2 0.2 0.2
-	Ns 20
-	map_Kd resources/textures/Border_baseColor.tga
 newmtl Labwall
 	Ka 0.05 0.05 0.05
 	Kd 0.7 0.7 0.7
 	d 1
 	illum 2
 	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
 	Ns 20
 	map_Kd resources/textures/Lab_wall.tga
+newmtl Cable_Mat_Black
+	Ka 0.2 0.2 0.2
+	Kd 0 0 0
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.0 0.0 0.0
+	Kt 0.1 0.1 0.1
+	Ns 20
+newmtl Control_Lamp_Blue
+	Ka 0.2 0.2 0.2
+	Kd 0 1.5 1.5
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.2 0.2 0.2
+	Kt 0.2 0.2 0.2
+	Ns 40
+newmtl Control_Lamp_Orange
+	Ka 0.2 0.2 0.2
+	Kd 1 0.17098024590002 0
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.2 0.2 0.2
+	Kt 0.2 0.2 0.2
+	Ns 40
+newmtl Radiation_protection_Glas
+	Ka 0.05 0.05 0.05
+	Kd 0.05 0.05 0.05
+	d 0.13
+	illum 2
+	Ks 0.1 0.1 0.1
+	Ke 0.1 0.1 0.1
+	Kt 0.9 0.9 0.9
+	Ni 1.02
+	Ns 150
+newmtl Arm_Lamp_Yellow
+	Ka 0.2 0.2 0.2
+	Kd 0.921356047 1 0
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.2 0.2 0.2
+	Kt 0.2 0.2 0.2
+	Ns 20
+newmtl Black_Matte_Dark_Gray
+	Ka 0.2 0.2 0.2
+	Kd 0.11 0.11 0.11
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.2 0.2 0.2
+	Kt 0.1 0.1 0.1
+	Ns 20
+newmtl White_metal
+	Ka 0.2 0.2 0.2
+	Kd 0.88 0.88 0.88
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.2 0.2 0.2
+	Kt 0.1 0.1 0.1
+	Ns 20
+newmtl Pneumatic_metal
+	Ka 0.2 0.2 0.2
+	Kd 0.4 0.4 0.4
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.6 0.6 0.6
+	Kt 0.0 0.0 0.0
+	Ns 20
+newmtl Portal_Color
+	Ka 0.2 0.2 0.2
+	Kd 0 1.5 1.5
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.2 0.2 0.2
+	Kt 0.2 0.2 0.2
+	Ns 40
+newmtl White-_Glossy_Champagne
+	Ka 0.4 0.4 0.4
+	Kd 1.0 1.0 1.0
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
+	Ns 40

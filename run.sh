@@ -8,13 +8,19 @@ mkdir -p output
 # # bin/FINAL testcases/scene06_bunny_1k.txt output/scene06.bmp
 # bin/FINAL testcases/scene07_shine.txt output/scene07.bmp
 python  scripts/build_scene.py \
-        --W 720 \
-        --H 720 \
-        --softlights "-x 0.0 -y 2.4 -z 0.0 -n 9 -a 0.45 -i 1.0 --color \"0.9 0.9 0.85\"" \
+        --W 1920 \
+        --H 1920 \
+        --softlights "-x 0.0 -y 2.4 -z 0.0 -n 4 -a 0.45 -i 0.9 --color \"0.9 0.9 0.85\"" \
+        --customlights "
+    PointLight {
+        position -1.8 -1.8 -1.8
+        color 0.05 0.9 0.9
+        intensity 0.02
+    }" \
         --scene "resources/scene/02_room_scene.txt" \
         --camera "resources/camera/standard.txt" \
         --texture "resources/textures/mlp.tga" \
         --color "0 0 255" \
         > testcases/scene.txt
-# gdb -ex=r --args bin/FINAL testcases/scene.txt output/scene.bmp
+# db -ex=r --args bin/FINAL testcases/scene.txt output/scene.bmp
 bin/FINAL testcases/scene.txt output/scene.bmp

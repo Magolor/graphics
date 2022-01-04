@@ -7,6 +7,7 @@ if __name__=="__main__":
         FloatArgumentDescriptor("y"),
         FloatArgumentDescriptor("z"),
         IntArgumentDescriptor("n",default=6),
+        IntArgumentDescriptor("e",default=6),
         FloatArgumentDescriptor("a",default=0.25),
         FloatArgumentDescriptor("i",default=0.9),
         StrArgumentDescriptor("color",default="0.9 0.9 0.9"),
@@ -26,8 +27,9 @@ if __name__=="__main__":
 Lights {
     numLights <nLights>
 <lights>
+<customlights>
 }
-""".replace("<nLights>",str(len(lights))).replace("<lights>","".join([
+""".replace("<nLights>",str(len(lights)+args.e)).replace("<lights>","".join([
 """\tPointLight {
         position <x> <y> <z>
         color <color>

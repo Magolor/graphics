@@ -14,10 +14,11 @@
 #include <utility>
 #include <sstream>
 #include <unordered_map>
+#include "kdtree.hpp"
 
 class Mesh : public Object3D {
 public:
-    std::vector<Triangle> A; std::unordered_map<string,Material*> M;
+    std::vector<Triangle> A; std::unordered_map<string,Material*> M; KDTree *T;
     Mesh(const char *filename, Material *material);
     bool intersect(const Ray &r, Hit &h, double tmin) override;
 };

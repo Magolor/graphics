@@ -5,7 +5,7 @@ IF(NOT CMAKE_BUILD_TYPE)
     SET(CMAKE_BUILD_TYPE Release)
 ENDIF()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w -O0 -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -w -O0 -g")
 
 IF(CMAKE_SYSTEM_NAME MATCHES "Linux")
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
@@ -16,18 +16,18 @@ ADD_SUBDIRECTORY(deps/tinyobjloader)
 
 SET(FINAL_SOURCES
         src/main.cpp
-        src/utils.cpp
-        src/mesh.cpp
         src/material.cpp
-        src/scene_parser.cpp)
+        src/mesh.cpp
+        src/scene_parser.cpp
+        src/utils.cpp
+)
 
 SET(FINAL_INCLUDES
-        include/tqdm.h
-        include/utils.hpp
         include/camera.hpp
         include/group.hpp
         include/hit.hpp
         include/image.hpp
+        include/kdtree.hpp
         include/light.hpp
         include/material.hpp
         include/mesh.hpp
@@ -36,8 +36,11 @@ SET(FINAL_INCLUDES
         include/ray.hpp
         include/scene_parser.hpp
         include/sphere.hpp
+        include/tqdm.h
         include/transform.hpp
-        include/triangle.hpp)
+        include/triangle.hpp
+        include/utils.hpp
+)
 
 SET(CMAKE_CXX_STANDARD 11)
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)

@@ -1,34 +1,34 @@
 Group {
-    numObjects 7
-    MaterialPreset resources/materials/blue_plastic.txt
+    numObjects 8
+    MaterialPreset resources/materials/blue.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_right_wall.obj
         }
     }
-    MaterialPreset resources/materials/mirror.txt
+    MaterialPreset resources/materials/transparent.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_left_wall.obj
         }
     }
-    MaterialPreset resources/materials/white_plastic.txt
+    MaterialPreset resources/materials/white.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_floor.obj
         }
     }
-    MaterialPreset resources/materials/white_plastic.txt
+    MaterialPreset resources/materials/white.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_front_wall.obj
         }
     }
-    MaterialPreset resources/materials/green_plastic.txt
+    MaterialPreset resources/materials/green.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
@@ -42,13 +42,23 @@ Group {
             obj_file resources/objects/room_light.obj
         }
     }
-    MaterialPreset resources/materials/ivory.txt
+    MaterialPreset resources/materials/texture.txt
     Transform {
         Scale  0.2 0.2 0.2
         Translate -7 -8.4 -7
         YRotate  20
         TriangleMesh {
             obj_file resources/objects/portal_cube.obj
+        }
+    }
+    MaterialPreset resources/materials/texture.txt
+    Transform {
+        Scale  0.007 0.007 0.007
+        Translate 225 -222 -200
+        YRotate  -60
+        XRotate  60
+        TriangleMesh {
+            obj_file resources/objects/portal_gun.obj
         }
     }
 }

@@ -46,7 +46,7 @@ public:
         if(L>=R) return nullptr; int M = (L+R)>>1; if(L==R-1){T[M]->d = d; return T[M];}
         nth_element(T.begin()+L,T.begin()+M,T.begin()+R,[d](KDNode*a, KDNode*b){return a->b.r[d%3]<b->b.r[d%3];}); 
         T[M]->l = BuildKDTree(d+1,L,M); T[M]->r = BuildKDTree(d+1,M+1,R);
-        T[M]->b = BBox(T[M]->l==nullptr?BBox():T[M]->l->b,T[M]->r==nullptr?BBox():T[M]->r->b,*(T[M]->a)); T[M]->d = d; return T[M];
+        T[M]->b = BBox((T[M]->l==nullptr)?BBox():T[M]->l->b,(T[M]->r==nullptr)?BBox():T[M]->r->b,*(T[M]->a)); T[M]->d = d; return T[M];
     }
     bool intersect(const Ray &r, Hit &h, double tmin) {
         return __intersect(r, h, tmin, ROOT);

@@ -22,5 +22,5 @@ python  scripts/build_scene.py \
         --texture "resources/textures/mlp.tga" \
         --color "0 0 255" \
         > testcases/scene.txt
-# db -ex=r --args bin/FINAL testcases/scene.txt output/scene.bmp
+# gdb -ex=r --args bin/FINAL testcases/scene.txt output/scene.bmp
 bin/FINAL testcases/scene.txt output/scene.bmp

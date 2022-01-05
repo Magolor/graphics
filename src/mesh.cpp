@@ -42,11 +42,6 @@ Mesh::Mesh(const char *filename, Material *material) : Object3D(material), T(nul
         for(int fi = offset = 0; fi < shapes[si].mesh.num_face_vertices.size(); offset += 3, fi++){
             assert(int(shapes[si].mesh.num_face_vertices[fi])==3);
             int mat = shapes[si].mesh.material_ids[fi];
-            // if(mat<0){
-            //     cout << mat << ' ' << material->albedo << ' ' << material->diffuseColor << endl;
-            // } else {
-            //     cout << mat << ' ' << M[materials[mat].name]->albedo << ' ' << M[materials[mat].name]->diffuseColor << ' ' << materials[mat].name << endl;
-            // }
             Triangle a(mat>=0?M[materials[mat].name]:material); a.un = a.ut = 1;
             for(i = 3; i--; idx[i] = shapes[si].mesh.indices[offset+i]);
             for(i = 3; i--; ) for(j = 3; j--; a.v[i][j] = attrib.vertices[3*idx[i].vertex_index+j]);

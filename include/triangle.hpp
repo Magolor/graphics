@@ -9,23 +9,23 @@ using namespace std;
 
 class Triangle: public Object3D {
 public:
-	Vector3f v[3], normal;
-	Vector3f vn[3]; bool un;
-	Vector2f vt[3]; bool ut;
+	Vector3f *v, normal;
+	Vector3f *vn; bool un;
+	Vector2f *vt; bool ut;
 	Triangle *portal;
 
 	Triangle() = delete;
-	Triangle(Material* m) : Object3D(m), un(false), ut(false), portal(nullptr) {}
+	Triangle(Material* m) : Object3D(m), un(false), ut(false), portal(nullptr) {v = new Vector3f[3]; vn = new Vector3f[3]; vt = new Vector2f[3];}
 	Triangle(const Vector3f& a, const Vector3f& b, const Vector3f& c, Material* m)
-		 : Object3D(m), normal(Vector3f::cross(b-a,c-a).normalized()), un(false), ut(false), portal(nullptr) {v[0] = a; v[1] = b; v[2] = c;}
+		 : Object3D(m), normal(Vector3f::cross(b-a,c-a).normalized()), un(false), ut(false), portal(nullptr) {v = new Vector3f[3]; vn = new Vector3f[3]; vt = new Vector2f[3]; v[0] = a; v[1] = b; v[2] = c;}
 
 	bool intersect(const Ray& l,  Hit& h, double tmin) override {
         Vector3f o = l.o, p = l.d, e1 = v[0]-v[1], e2 = v[0]-v[2], s = v[0]-o;
 		double d = Matrix3f(p,e1,e2).determinant(), t = 0., b = 0., c = 0.;
-        return (t=Matrix3f(s,e1,e2).determinant()/d)>=tmin&&t<h.t
+        return ((t=Matrix3f(s,e1,e2).determinant()/d)>=tmin&&t<h.t
 			&& (b=Matrix3f(p,s,e2).determinant()/d)>=0&&b<=1
 			&& (c=Matrix3f(p,e1,s).determinant()/d)>=0&&c<=1-b
-			&& (portal==nullptr?ut?h.set(t,material,normal,getTexcoord(l.p(t))):h.set(t,material,normal):h.set(t,material,normal,this),true);
+			&& (ut?h.set(t,material,normal,getTexcoord(l.p(t))):h.set(t,material,normal),true));
 	}
 
 	Vector2f getTexcoord(Vector3f p) const {

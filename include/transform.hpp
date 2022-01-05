@@ -22,8 +22,7 @@ public:
         Vector3f trSource = transformPoint(T, r.o);
         Vector3f trDirection = transformDirection(T, r.d);
         Ray tr(trSource, trDirection); bool inter = o->intersect(tr, h, tmin);
-        return inter?h.has_texture?h.set(h.t, h.material, transformDirection(T.transposed(), h.normal), h.texcoord)
-                                  :h.set(h.t, h.material, transformDirection(T.transposed(), h.normal)),true:false;
+        return inter?h.__set(h.t, h.material, transformDirection(T.transposed(), h.normal)),true:false;
     }
 
 protected:

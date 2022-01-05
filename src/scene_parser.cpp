@@ -17,9 +17,13 @@ Vector3f SceneParser::rayTracing(const Ray &r, const Vector3f &background, int d
     Vector3f p = r.p(h.t), d, lc; Light *l;
     Vector3f Id = r.d, Nd = h.normal, Rd = reflect(Id,Nd), Fd = refract(Id,Nd,h.material->refractivity);
     Vector3f Ro = p+(Vector3f::dot(Rd,Nd)<0.?-eps:eps)*Nd, Fo = p+(Vector3f::dot(Fd,Nd)<0.?-eps:eps)*Nd;
-    Vector3f reflection = depth>0&&h.material->albedo[2]>0.?rayTracing(Ray(Ro,Rd.normalized()),Vector3f::ZERO,depth-1,weight*h.material->albedo[2],eps):Vector3f::ZERO;
-    Vector3f refraction = depth>0&&h.material->albedo[3]>0.?rayTracing(Ray(Fo,Fd.normalized()),Vector3f::ZERO,depth-1,weight*h.material->albedo[3],eps):Vector3f::ZERO;
+    Vector3f reflection = depth>0&&h.material->albedo[2]>0.?rayTracing(Ray(Ro,Rd.normalized()),background,depth-1,weight*h.material->albedo[2],eps):Vector3f::ZERO;
+    Vector3f refraction = depth>0&&h.material->albedo[3]>0.?rayTracing(Ray(Fo,Fd.normalized()),background,depth-1,weight*h.material->albedo[3],eps):Vector3f::ZERO;
     Vector3f c = reflection * h.material->albedo[2] + refraction * h.material->albedo[3];
+    if(h.portal!=nullptr && depth>0 && h.material->portalness>0.){
+        Ray transmit(p,Id); Ray relative = h.portal->getPortalRelative(transmit); Ray port = h.portal->portal->getPortalRay(relative);
+        Vector3f portation = rayTracing(port,background,depth-1,weight*h.material->portalness,eps); c += h.material->portalness*portation;
+    }
     for(int k = nLights; k-- && ((l=getLight(k))->getIllumination(p, d, lc), true); )
         c += l->getIntensity()*h.material->Shade(r, h, d, lc, shadowTracing(r, h, d)); return c;
 }

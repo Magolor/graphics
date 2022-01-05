@@ -19,13 +19,13 @@ public:
     Vector3f diffuseColor;
     Vector3f specularColor;
     Vector3f ambienceColor;
-    double refractivity, shininess;
+    double refractivity, shininess, portalness;
     Image *texture;
 
     explicit Material(const Vector3f &d_color = Vector3f::ZERO, const Vector3f &s_color = Vector3f::ZERO, const Vector3f &a_color = Vector3f::ZERO, double s = 0, double r = 1, const Vector4f &a = Vector4f::IND0+Vector4f::IND1, const char *filename = nullptr)
-        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), refractivity(r), albedo(a), texture(nullptr) {if(filename!=nullptr&&filename[0]) texture = Image::LoadTGA(filename);}
+        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), refractivity(r), albedo(a), texture(nullptr), portalness(0.) {if(filename!=nullptr&&filename[0]) texture = Image::LoadTGA(filename);}
     explicit Material(const Vector3f &d_color = Vector3f::ZERO, const Vector3f &s_color = Vector3f::ZERO, const Vector3f &a_color = Vector3f::ZERO, double s = 0, double r = 1, const Vector4f &a = Vector4f::IND0+Vector4f::IND1, Image *texture = nullptr)
-        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), refractivity(r), albedo(a), texture(texture) {}
+        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), refractivity(r), albedo(a), texture(texture), portalness(0.) {}
     explicit Material(const char *filename) {
         std::ifstream f;
         f.open(filename);
@@ -60,6 +60,8 @@ public:
                 ss >> refractivity;
             } else if (tok == "shininess") {
                 ss >> shininess;
+            } else if (tok == "shininess") {
+                ss >> portalness;
             }
         }
         f.close();

@@ -1,10 +1,11 @@
 Group {
     numObjects 1
-    MaterialPreset resources/materials/red_plastic.txt
+    MaterialPreset resources/materials/texture.txt
     Transform {
-        Scale  2.4 2.4 2.4
+        Scale  0.5 0.5 0.5
+        Translate 0 0 -4
         TriangleMesh {
-            obj_file resources/objects/room_floor.obj
+            obj_file resources/objects/portal_cube.obj
         }
     }
 }

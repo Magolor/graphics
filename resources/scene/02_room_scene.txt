@@ -1,5 +1,5 @@
 Group {
-    numObjects 8
+    numObjects 10
     MaterialPreset resources/materials/blue.txt
     Transform {
         Scale  2.4 2.4 2.4
@@ -60,5 +60,19 @@ Group {
         TriangleMesh {
             obj_file resources/objects/portal_gun.obj
         }
+    }
+    MaterialPreset resources/materials/portal.txt
+    Triangle {
+        vertex0 2 -2.5 0
+        vertex1 2 -0.5 0
+        vertex2 0 -0.5 0
+        portal A00
+    }
+    MaterialPreset resources/materials/portal.txt
+    Triangle {
+        vertex0 0 -2.5 0
+        vertex1 0 -0.5 0
+        vertex2 -2 -0.5 0
+        portal A00
     }
 }

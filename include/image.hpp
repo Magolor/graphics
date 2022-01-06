@@ -37,7 +37,6 @@ public:
     Image() : w(0), h(0), data(nullptr) {}
     Image(int w, int h) : w(w), h(h), data(new Vector3f[w*h]) {}
     Image(int w, int h, const Vector3f &color) : w(w), h(h), data(new Vector3f[w*h]) {paint(color);}
-    Image(const Image &img) : w(img.w), h(img.h) {delete[] data; data = img.data;}
     ~Image() {delete[] data;}
 
     void paint(const Vector3f &color = Vector3f::ZERO) {for(int i = 0; i < w*h; data[i++] = color);}

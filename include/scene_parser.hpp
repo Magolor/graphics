@@ -29,6 +29,7 @@ public:
     Camera *camera;
     Image *texture;
     Vector3f color;
+    unordered_map<std::string,Triangle*> portal_map;
     int nLights, nMaterials;
 
     SceneParser() = delete;
@@ -423,6 +424,8 @@ private:
     
     Triangle *parseTriangle() {
         char token[MAX_PARSER_TOKEN_LENGTH];
+        char portal[MAX_PARSER_TOKEN_LENGTH];
+        portal[0] = 0;
         getToken(token);
         assert (!strcmp(token, "{"));
         getToken(token);
@@ -435,9 +438,23 @@ private:
         assert (!strcmp(token, "vertex2"));
         Vector3f v2 = readVector3f();
         getToken(token);
+        if(!strcmp(token, "portal")){
+            getToken(portal);
+            getToken(token);
+        }
         assert (!strcmp(token, "}"));
         assert (current_material != nullptr);
-        return new Triangle(v0, v1, v2, current_material);
+        Triangle *a = new Triangle(v0, v1, v2, current_material);
+        string portal_id = std::string(portal);
+        if(portal[0]){
+            if(portal_map.count(portal_id)==0)
+                portal_map[portal_id] = a;
+            else {
+                portal_map[portal_id]->portal = a;
+                a->portal = portal_map[portal_id];
+            }
+        }
+        return a;
     }
     
     Mesh *parseTriangleMesh() {

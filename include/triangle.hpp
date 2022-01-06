@@ -25,7 +25,7 @@ public:
         return ((t=Matrix3f(s,e1,e2).determinant()/d)>=tmin&&t<h.t
 			&& (b=Matrix3f(p,s,e2).determinant()/d)>=0&&b<=1
 			&& (c=Matrix3f(p,e1,s).determinant()/d)>=0&&c<=1-b
-			&& (ut?h.set(t,material,normal,getTexcoord(l.p(t))):h.set(t,material,normal),true));
+			&& ((portal==nullptr)?ut?h.set(t,material,normal,getTexcoord(l.p(t))):h.set(t,material,normal):h.set(t,material,normal,portal),true));
 	}
 
 	Vector2f getTexcoord(Vector3f p) const {

@@ -1,5 +1,6 @@
 albedo 0.9 0.2 0.0 0.0
 diffuseColor 1.0 0.0 0.0 
 specularColor 0.0 0.0 0.0
+ambienceColor 0.02 0.02 0.02
 refractivity 1.0
 shininess 0.0

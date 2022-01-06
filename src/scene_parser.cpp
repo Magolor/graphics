@@ -21,9 +21,9 @@ Vector3f SceneParser::rayTracing(const Ray &r, const Vector3f &background, int d
     Vector3f refraction = depth>0&&h.material->albedo[3]>1e-9?rayTracing(Ray(Fo,Fd.normalized()),background,depth-1,weight*h.material->albedo[3],eps):Vector3f::ZERO;
     Vector3f c = reflection * h.material->albedo[2] + refraction * h.material->albedo[3];
     if(h.portal!=nullptr && depth>0 && h.material->portalness>1e-9){
-        Ray transmit(p,Id); Ray relative = h.portal->getPortalRelative(transmit); Ray port = h.portal->portal->getPortalRay(relative);
+        Ray transmit(p,Rd); Ray relative = h.portal->getPortalRelative(transmit); Ray _port = h.portal->portal->getPortalRay(relative);
+        Vector3f Po = _port.o+(Vector3f::dot(_port.d,h.portal->portal->normal)<0.?-eps:eps)*h.portal->portal->normal; Ray port(Po,_port.d);
         Vector3f portation = rayTracing(port,background,depth-1,weight*h.material->portalness,eps); c += h.material->portalness*portation;
-        cout << transmit << ' ' << port << endl;
     }
     for(int k = nLights; k-- && ((l=getLight(k))->getIllumination(p, d, lc), true); )
         c += l->getIntensity()*h.material->Shade(r, h, d, lc, shadowTracing(r, h, d)); return c;

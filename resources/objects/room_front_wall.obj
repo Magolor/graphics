@@ -1,6 +1,12 @@
+mtllib resources/textures/portal.lib
+usemtl Dirty_Mirror
 v -0.901 -0.901 -0.9
 v -0.901 0.901 -0.9
 v 0.901 -0.901 -0.9
 v 0.901 0.901 -0.9
-f 1 3 4
-f 1 4 2
+vt 0.00 0.00 0
+vt 1.00 0.00 0
+vt 0.00 1.00 0
+vt 1.00 1.00 0
+f 1/1 3/3 4/4
+f 1/1 4/4 2/2

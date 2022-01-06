@@ -18,7 +18,7 @@ python  scripts/build_scene.py \
         intensity 0.02
     }" \
         --scene "resources/scene/02_room_scene.txt" \
-        --camera "resources/camera/standard.txt" \
+        --camera "resources/camera/left_up.txt" \
         --texture "resources/textures/mlp.tga" \
         --color "0 0 255" \
         > testcases/scene.txt

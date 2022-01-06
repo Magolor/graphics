@@ -1,7 +1,7 @@
 
 PerspectiveCamera {
-    center 0.5 0.5 9.7
-    direction -0.07 -0.07 -1
+    center -0.5 0.5 9.7
+    direction 0.07 -0.07 -1
     up 0 1 0
     angle 30
     width <W>

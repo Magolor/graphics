@@ -1,8 +1,8 @@
 
 
 PerspectiveCamera {
-    center 0.0001 0.0001 10
-    direction 0 0 -1
+    center -0.5 0.5 9.7
+    direction 0.07 -0.07 -1
     up 0 1 0
     angle 30
     width 1920
@@ -109,36 +109,36 @@ Background {
 }
 
 Group {
-    numObjects 10
-    MaterialPreset resources/materials/blue.txt
+    numObjects 17
+    MaterialPreset resources/materials/texture.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_right_wall.obj
         }
     }
-    MaterialPreset resources/materials/transparent.txt
+    MaterialPreset resources/materials/texture.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_left_wall.obj
         }
     }
-    MaterialPreset resources/materials/white.txt
+    MaterialPreset resources/materials/shiny_texture.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_floor.obj
         }
     }
-    MaterialPreset resources/materials/white.txt
+    MaterialPreset resources/materials/mirror.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
             obj_file resources/objects/room_front_wall.obj
         }
     }
-    MaterialPreset resources/materials/green.txt
+    MaterialPreset resources/materials/texture.txt
     Transform {
         Scale  2.4 2.4 2.4
         TriangleMesh {
@@ -171,19 +171,76 @@ Group {
             obj_file resources/objects/portal_gun.obj
         }
     }
-    MaterialPreset resources/materials/portal.txt
+    MaterialPreset resources/materials/portal_blue.txt
     Triangle {
-        vertex0 2 -2.5 0
-        vertex1 2 -0.5 0
-        vertex2 0 -0.5 0
+        vertex0 1.2 -1.6 -2.12
+        vertex1 1.2 0.4 -2.12
+        vertex2 -1.2 0.4 -2.12
         portal A00
     }
-    MaterialPreset resources/materials/portal.txt
+    MaterialPreset resources/materials/portal_blue.txt
     Triangle {
-        vertex0 0 -2.5 0
-        vertex1 0 -0.5 0
-        vertex2 -2 -0.5 0
+        vertex0 1.2 -1.6 -2.12
+        vertex1 -1.2 0.4 -2.12
+        vertex2 -1.2 -1.6 -2.12
+        portal A01
+    }
+    MaterialPreset resources/materials/portal_orange.txt
+    Triangle {
+        vertex0 2.12 -0.2 1.2
+        vertex1 2.12 1.8 1.2
+        vertex2 2.12 1.8 -1.2
         portal A00
+    }
+    MaterialPreset resources/materials/portal_orange.txt
+    Triangle {
+        vertex0 2.12 -0.2 1.2
+        vertex1 2.12 1.8 -1.2
+        vertex2 2.12 -0.2 -1.2
+        portal A01
+    }
+    MaterialPreset resources/materials/texture.txt
+    Transform {
+        Scale 0.227 0.100 0.020
+        Translate 0 14 -100
+        ZRotate  15
+        TriangleMesh {
+            obj_file resources/objects/exit_surface.obj
+        }
+    }
+    MaterialPreset resources/materials/texture.txt
+    Transform {
+        Scale 0.227 0.100 0.020
+        Translate 0 14 -100
+        ZRotate  15
+        TriangleMesh {
+            obj_file resources/objects/exit_surround.obj
+        }
+    }
+    MaterialPreset resources/materials/texture.txt
+    Transform {
+        Scale 0.02 0.02 0.02
+        Translate -70 -110 70
+        YRotate -30
+        TriangleMesh {
+            obj_file resources/objects/portal_turret.obj
+        }
+    }
+    MaterialPreset resources/materials/texture.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        Translate 0 0 0.0001
+        TriangleMesh {
+            obj_file resources/objects/warning_tape.obj
+        }
+    }
+    MaterialPreset resources/materials/texture.txt
+    Transform {
+        Scale  2.4 2.4 2.4
+        Translate 0 10.2 0.0001
+        TriangleMesh {
+            obj_file resources/objects/warning_tape.obj
+        }
     }
 }
 

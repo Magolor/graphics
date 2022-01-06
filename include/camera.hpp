@@ -10,10 +10,10 @@ class Camera {
 public:
     int w, h;
     
-    Camera(const Vector3f &center, const Vector3f &direction, const Vector3f &up, int imgW, int imgH)
-        : center(center), direction(direction.normalized()), w(imgW), h(imgH) {
-        this->horizontal = Vector3f::cross(this->direction, up);
-        this->up = Vector3f::cross(this->horizontal, this->direction);
+    Camera(const Vector3f &_center, const Vector3f &_direction, const Vector3f &_up, int imgW, int imgH)
+        : center(_center), direction(_direction.normalized()), up(_up.normalized()), w(imgW), h(imgH) {
+        up = (up-Vector3f::dot(up,direction)*direction).normalized();
+        horizontal = Vector3f::cross(direction, up);
     }
     virtual ~Camera() = default;
 

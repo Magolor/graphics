@@ -23,9 +23,9 @@ public:
     Image *texture;
 
     explicit Material(const Vector3f &d_color = Vector3f::ZERO, const Vector3f &s_color = Vector3f::ZERO, const Vector3f &a_color = Vector3f::ZERO, double s = 0, double r = 1, const Vector4f &a = Vector4f::IND0+Vector4f::IND1, const char *filename = nullptr)
-        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), portalness(0.), refractivity(r), albedo(a), texture(nullptr) {if((filename!=nullptr)&&filename[0]) texture = Image::LoadTGA(filename);}
+        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), portalness(0.), refractivity(r), albedo(a), texture(nullptr) {if((filename!=nullptr)&&filename[0]){texture = Image::LoadTGA(filename); texture->flip(0);}}
     explicit Material(const Vector3f &d_color = Vector3f::ZERO, const Vector3f &s_color = Vector3f::ZERO, const Vector3f &a_color = Vector3f::ZERO, double s = 0, double r = 1, const Vector4f &a = Vector4f::IND0+Vector4f::IND1, Image *texture = nullptr)
-        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), portalness(0.), refractivity(r), albedo(a), texture(texture) {}
+        : diffuseColor(d_color), specularColor(s_color), ambienceColor(a_color), shininess(s), portalness(0.), refractivity(r), albedo(a), texture(texture) {if(texture!=nullptr){ texture->flip(0);}}
     explicit Material(const char *filename) {
         std::ifstream f;
         f.open(filename);
@@ -71,7 +71,7 @@ public:
 
     Vector3f Shade(const Ray &ray, const Hit &hit, const Vector3f &dirToLight, const Vector3f &lightColor, bool shadow);
     Vector3f getNearestCyclicTexture(Vector2f texcoord) const {
-        if(texture==nullptr) return diffuseColor; double x = texcoord[0]*(texture->w-1), y = texcoord[1]*(texture->h-1); int lx = floor(x), ly = floor(y), rx = ceil(x), ry = ceil(y);
+        if(texture==nullptr) return diffuseColor; double x = texcoord[1]*(texture->w-1), y = texcoord[0]*(texture->h-1); int lx = floor(x), ly = floor(y), rx = ceil(x), ry = ceil(y);
         double w0 = Vector2f(x-lx,y-ly).length(), w1 = Vector2f(x-lx,ry-y).length(), w2 = Vector2f(rx-x,y-ly).length(), w3 = Vector2f(rx-x,ry-y).length();
         return diffuseColor * (
             texture->get((lx%texture->w+texture->w)%texture->w,(ly%texture->h+texture->h)%texture->h) * w0

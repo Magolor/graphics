@@ -22,7 +22,6 @@ int main(int argc, char *argv[]) {
     string outputFile = argv[2];  // only bmp is allowed.
 
     SceneParser scene(inputFile.c_str());
-    scene.render(outputFile.c_str(), 4, true);
+    scene.render(outputFile.c_str(), 8, true);
     return 0;
 }
-

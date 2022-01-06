@@ -31,6 +31,16 @@ newmtl Border
 	Kt 0.1 0.1 0.1
 	Ns 20
 	map_Kd resources/textures/Border_baseColor.tga
+newmtl Dirty_Mirror
+	Ka 0.05 0.05 0.05
+	Kd 0.4712271341 0.4712271341 0.4712271341
+	d 1
+	illum 2
+	Ks 1.0 1.0 1.0
+	Ke 0.8 0.8 0.8
+	Kt 0.0 0.0 0.0
+	Ns 1425
+	map_Kd resources/textures/Border_baseColor.tga
 newmtl Heart
 	Ka 0.05 0.05 0.05
 	Kd 1 1 1
@@ -50,16 +60,66 @@ newmtl Contour
 	Ke 0.1 0.1 0.1
 	Kt 0.1 0.1 0.1
 	Ns 20
-newmtl Labwall
+newmtl Exit
 	Ka 0.05 0.05 0.05
-	Kd 0.7 0.7 0.7
+	Kd 0.4712271341 0.4712271341 0.4712271341
 	d 1
 	illum 2
 	Ks 0.2 0.2 0.2
 	Ke 0.1 0.1 0.1
 	Kt 0.1 0.1 0.1
 	Ns 20
+	map_Kd resources/textures/Exit.tga
+newmtl Warning_Tape
+	Ka 0.05 0.05 0.05
+	Kd 0.4712271341 0.4712271341 0.4712271341
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
+	Ns 20
+	map_Kd resources/textures/Warning_tape.tga
+newmtl Labwall
+	Ka 0.05 0.05 0.05
+	Kd 0.8 0.8 0.8
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.4 0.4 0.4
+	Kt 0.1 0.1 0.1
+	Ns 20
 	map_Kd resources/textures/Lab_wall.tga
+newmtl Concrete
+	Ka 0.05 0.05 0.05
+	Kd 0.8 0.8 0.8
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
+	Ns 20
+	map_Kd resources/textures/Concrete.tga
+newmtl Ironwall
+	Ka 0.05 0.05 0.05
+	Kd 0.8 0.8 0.8
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
+	Ns 20
+	map_Kd resources/textures/Iron_wall.tga
+newmtl Aperturewall
+	Ka 0.05 0.05 0.05
+	Kd 0.8 0.8 0.8
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ke 0.1 0.1 0.1
+	Kt 0.1 0.1 0.1
+	Ns 20
+	map_Kd resources/textures/Aperture_wall.tga
 newmtl Cable_Mat_Black
 	Ka 0.2 0.2 0.2
 	Kd 0 0 0
@@ -151,3 +211,13 @@ newmtl White-_Glossy_Champagne
 	Ke 0.1 0.1 0.1
 	Kt 0.1 0.1 0.1
 	Ns 40
+newmtl Turret
+	Ka 0.0500 0.0500 0.0500
+	Kd 1.0000 1.0000 1.0000
+	d 1.0000
+	illum 2
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.1000 0.1000 0.1000
+	Ns 50.0000
+	Ni 1.5000
+	map_Kd resources/textures/Turret.tga

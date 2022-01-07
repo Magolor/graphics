@@ -1,5 +1,5 @@
 Group {
-    numObjects 17
+    numObjects 18
     MaterialPreset resources/materials/texture.txt
     Transform {
         Scale  2.4 2.4 2.4
@@ -51,7 +51,7 @@ Group {
             obj_file resources/objects/portal_cube.obj
         }
     }
-    MaterialPreset resources/materials/shiny_texture.txt
+    MaterialPreset resources/materials/white_metal.txt
     Transform {
         Scale  0.007 0.007 0.007
         Translate 225 -222 -200
@@ -108,7 +108,7 @@ Group {
     MaterialPreset resources/materials/shiny_texture.txt
     Transform {
         Scale 0.23 0.23 0.23
-        Translate -6 -5.3 7.5
+        Translate -6.5 -5.4 12
         YRotate -30
         TriangleMesh {
             obj_file resources/objects/portal_turret.obj
@@ -125,10 +125,19 @@ Group {
     MaterialPreset resources/materials/shiny_texture.txt
     Transform {
         Scale  0.004 0.004 0.004
-        Translate 445 -460 0
+        Translate 433 -455 0
         YRotate 15
         TriangleMesh {
             obj_file resources/objects/portal_wheatley.obj
+        }
+    }
+    MaterialPreset resources/materials/texture.txt
+    Transform {
+        Scale 1.5 1.5 1.5
+        Translate 1.4 -1 4.3
+        YRotate -90
+        TriangleMesh {
+            obj_file resources/objects/portal_elevator.obj
         }
     }
 }

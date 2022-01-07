@@ -1,130 +1,410 @@
 
 Lights {
-    numLights 26
+    numLights 84
 	PointLight {
         position -0.7 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.7 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.7 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.7 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.7 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.7 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.7 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.7 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.7 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 -0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 -0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 0.0
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.5249999999999999 2.25 0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.35 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.35 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.35 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.35 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.35 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.35 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.35 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.35 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position -0.35 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 -0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 -0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 0.0
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position -0.175 2.25 0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.0 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.0 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.0 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.0 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.0 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.0 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.0 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.0 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.0 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 -0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 -0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 0.0
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.175 2.25 0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.35 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.35 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.35 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.35 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.35 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.35 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.35 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.35 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.35 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 -0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 -0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 0.0
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 0.35
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.5249999999999999 2.25 0.7
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.7 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.7 2.25 -0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.7 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.7 2.25 -0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.7 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.7 2.25 0.175
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.7 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
+    }
+	PointLight {
+        position 0.7 2.25 0.5249999999999999
+        color 0.9 0.9 0.85
+        intensity 0.011111111111111112
     }
 	PointLight {
         position 0.7 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.036
+        intensity 0.011111111111111112
     }
 
 <customlights>

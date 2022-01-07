@@ -25,7 +25,7 @@ public:
         return ((t=Matrix3f(s,e1,e2).determinant()/d)>=tmin&&t<h.t
 			&& (b=Matrix3f(p,s,e2).determinant()/d)>=0&&b<=1
 			&& (c=Matrix3f(p,e1,s).determinant()/d)>=0&&c<=1-b
-			&& ((portal==nullptr)?ut?h.set(t,material,normal,getTexcoord(l.p(t))):h.set(t,material,normal):h.set(t,material,normal,this),true));
+			&& ((portal==nullptr)?ut?h.set(t,material,normal,getTexcoord(l.p(t)),un,getNormcoord(l.p(t))):h.set(t,material,normal):h.set(t,material,normal,this),true));
 	}
 
 	Vector2f getTexcoord(Vector3f p) const {
@@ -33,6 +33,14 @@ public:
 		double w1 = Vector3f::cross(p-v[0],p-v[2]).length();
 		double w2 = Vector3f::cross(p-v[0],p-v[1]).length();
 		return (vt[0]*w0 + vt[1]*w1 + vt[2]*w2) / (w0+w1+w2);
+	}
+
+	Vector3f getNormcoord(Vector3f p) const {
+		if(!un) return Vector3f::ZERO;
+		double w0 = Vector3f::cross(p-v[1],p-v[2]).length();
+		double w1 = Vector3f::cross(p-v[0],p-v[2]).length();
+		double w2 = Vector3f::cross(p-v[0],p-v[1]).length();
+		return ((vn[0]*w0 + vn[1]*w1 + vn[2]*w2) / (w0+w1+w2)).normalized();
 	}
 
 	Ray getPortalRelative(const Ray &l) const {

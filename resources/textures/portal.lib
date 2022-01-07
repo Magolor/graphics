@@ -149,13 +149,13 @@ newmtl Control_Lamp_Orange
 	Ns 40
 newmtl Radiation_protection_Glas
 	Ka 0.05 0.05 0.05
-	Kd 0.00 0.90 0.90
+	Kd 0.10 0.10 0.10
 	d 1
 	illum 2
 	Ks 0.1 0.1 0.1
 	Ke 0.1 0.1 0.1
 	Kt 0.9 0.9 0.9
-	Ni 1.05
+	Ni 1.02
 	Ns 125
 newmtl Arm_Lamp_Yellow
 	Ka 0.2 0.2 0.2
@@ -195,13 +195,13 @@ newmtl Pneumatic_metal
 	Ns 20
 newmtl Portal_Color
 	Ka 0.2 0.2 0.2
-	Kd 0 1.5 1.5
+	Kd 0 1.0 1.0
 	d 1
 	illum 2
-	Ks 0.2 0.2 0.2
+	Ks 0.6 0.6 0.6
 	Ke 0.2 0.2 0.2
 	Kt 0.2 0.2 0.2
-	Ns 40
+	Ns 150
 newmtl White-_Glossy_Champagne
 	Ka 0.4 0.4 0.4
 	Kd 1.0 1.0 1.0
@@ -303,3 +303,36 @@ newmtl Material.002
 	illum 2
 	Ks 0.5 0.5 0.5
 	Ns 40
+newmtl Elevator_A
+	Ka 0.2 0.2 0.2
+	Kd 1 1 1
+	d 1
+	illum 2
+	Ks 0 0 0
+	Ns 20
+	map_Kd resources/textures/Elevator_A.tga
+newmtl Elevator_B
+	Ka 0.2 0.2 0.2
+	Kd 1 1 1
+	d 1
+	illum 2
+	Ks 0 0 0
+	Ns 20
+	map_Kd resources/textures/Elevator_B.tga
+newmtl Elevator_C
+	Ka 0.2 0.2 0.2
+	Kd 1 1 1
+	d 1
+	illum 2
+	Ks 0 0 0
+	Ns 20
+	map_Kd resources/textures/Elevator_C.tga
+newmtl Frame
+	Ka 0.2 0.2 0.2
+	Kd 1 1 1
+	d 1
+	illum 2
+	Ks 0.2 0.2 0.2
+	Ns 20
+	map_Kd resources/textures/Frame.tga
+

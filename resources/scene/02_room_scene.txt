@@ -1,5 +1,5 @@
 Group {
-    numObjects 16
+    numObjects 17
     MaterialPreset resources/materials/texture.txt
     Transform {
         Scale  2.4 2.4 2.4
@@ -63,37 +63,36 @@ Group {
     }
     MaterialPreset resources/materials/portal_blue.txt
     Triangle {
-        vertex0 1.2 -1.6 -2.12
-        vertex1 1.2 0.4 -2.12
-        vertex2 -1.2 0.4 -2.12
+        vertex0 1.2 -1.6 -2.10
+        vertex1 1.2 0.4 -2.14
+        vertex2 -1.2 0.4 -2.14
         portal A00
     }
     MaterialPreset resources/materials/portal_blue.txt
     Triangle {
-        vertex0 1.2 -1.6 -2.12
-        vertex1 -1.2 0.4 -2.12
-        vertex2 -1.2 -1.6 -2.12
+        vertex0 1.2 -1.6 -2.10
+        vertex1 -1.2 0.4 -2.14
+        vertex2 -1.2 -1.6 -2.10
         portal A01
     }
     MaterialPreset resources/materials/portal_orange.txt
     Triangle {
-        vertex0 2.12 -0.2 1.2
-        vertex1 2.12 1.8 1.2
-        vertex2 2.12 1.8 -1.2
+        vertex0 2.10 -0.2 1.2
+        vertex1 2.14 1.8 1.2
+        vertex2 2.14 1.8 -1.2
         portal A00
     }
     MaterialPreset resources/materials/portal_orange.txt
     Triangle {
-        vertex0 2.12 -0.2 1.2
-        vertex1 2.12 1.8 -1.2
-        vertex2 2.12 -0.2 -1.2
+        vertex0 2.10 -0.2 1.2
+        vertex1 2.14 1.8 -1.2
+        vertex2 2.10 -0.2 -1.2
         portal A01
     }
     MaterialPreset resources/materials/texture.txt
     Transform {
         Scale 0.227 0.100 0.020
         Translate 0 14 -100
-        ZRotate  15
         TriangleMesh {
             obj_file resources/objects/exit_surface.obj
         }
@@ -108,8 +107,8 @@ Group {
     }
     MaterialPreset resources/materials/shiny_texture.txt
     Transform {
-        Scale 0.02 0.02 0.02
-        Translate -70 -110 70
+        Scale 0.23 0.23 0.23
+        Translate -6 -5.3 7.5
         YRotate -30
         TriangleMesh {
             obj_file resources/objects/portal_turret.obj
@@ -121,6 +120,15 @@ Group {
         Translate 0 0 0.0001
         TriangleMesh {
             obj_file resources/objects/warning_tape.obj
+        }
+    }
+    MaterialPreset resources/materials/shiny_texture.txt
+    Transform {
+        Scale  0.004 0.004 0.004
+        Translate 445 -460 0
+        YRotate 15
+        TriangleMesh {
+            obj_file resources/objects/portal_wheatley.obj
         }
     }
 }

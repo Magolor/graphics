@@ -11,86 +11,131 @@ PerspectiveCamera {
 
 
 Lights {
-    numLights 17
+    numLights 26
 	PointLight {
-        position -0.44999999999999996 2.4 -0.44999999999999996
+        position -0.7 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position -0.44999999999999996 2.4 -0.15
+        position -0.7 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position -0.44999999999999996 2.4 0.15
+        position -0.7 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position -0.44999999999999996 2.4 0.44999999999999996
+        position -0.7 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position -0.15 2.4 -0.44999999999999996
+        position -0.7 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position -0.15 2.4 -0.15
+        position -0.35 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position -0.15 2.4 0.15
+        position -0.35 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position -0.15 2.4 0.44999999999999996
+        position -0.35 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.15 2.4 -0.44999999999999996
+        position -0.35 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.15 2.4 -0.15
+        position -0.35 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.15 2.4 0.15
+        position 0.0 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.15 2.4 0.44999999999999996
+        position 0.0 2.25 -0.35
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.44999999999999996 2.4 -0.44999999999999996
+        position 0.0 2.25 0.0
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.44999999999999996 2.4 -0.15
+        position 0.0 2.25 0.35
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.44999999999999996 2.4 0.15
+        position 0.0 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
     }
 	PointLight {
-        position 0.44999999999999996 2.4 0.44999999999999996
+        position 0.35 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.05625
+        intensity 0.036
+    }
+	PointLight {
+        position 0.35 2.25 -0.35
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.35 2.25 0.0
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.35 2.25 0.35
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.35 2.25 0.7
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.7 2.25 -0.7
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.7 2.25 -0.35
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.7 2.25 0.0
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.7 2.25 0.35
+        color 0.9 0.9 0.85
+        intensity 0.036
+    }
+	PointLight {
+        position 0.7 2.25 0.7
+        color 0.9 0.9 0.85
+        intensity 0.036
     }
 
 
@@ -152,7 +197,7 @@ Group {
             obj_file resources/objects/room_light.obj
         }
     }
-    MaterialPreset resources/materials/texture.txt
+    MaterialPreset resources/materials/shiny_texture.txt
     Transform {
         Scale  0.2 0.2 0.2
         Translate -7 -8.4 -7
@@ -161,7 +206,7 @@ Group {
             obj_file resources/objects/portal_cube.obj
         }
     }
-    MaterialPreset resources/materials/texture.txt
+    MaterialPreset resources/materials/shiny_texture.txt
     Transform {
         Scale  0.007 0.007 0.007
         Translate 225 -222 -200
@@ -173,54 +218,52 @@ Group {
     }
     MaterialPreset resources/materials/portal_blue.txt
     Triangle {
-        vertex0 1.2 -1.6 -2.12
-        vertex1 1.2 0.4 -2.12
-        vertex2 -1.2 0.4 -2.12
+        vertex0 1.2 -1.6 -2.10
+        vertex1 1.2 0.4 -2.14
+        vertex2 -1.2 0.4 -2.14
         portal A00
     }
     MaterialPreset resources/materials/portal_blue.txt
     Triangle {
-        vertex0 1.2 -1.6 -2.12
-        vertex1 -1.2 0.4 -2.12
-        vertex2 -1.2 -1.6 -2.12
+        vertex0 1.2 -1.6 -2.10
+        vertex1 -1.2 0.4 -2.14
+        vertex2 -1.2 -1.6 -2.10
         portal A01
     }
     MaterialPreset resources/materials/portal_orange.txt
     Triangle {
-        vertex0 2.12 -0.2 1.2
-        vertex1 2.12 1.8 1.2
-        vertex2 2.12 1.8 -1.2
+        vertex0 2.10 -0.2 1.2
+        vertex1 2.14 1.8 1.2
+        vertex2 2.14 1.8 -1.2
         portal A00
     }
     MaterialPreset resources/materials/portal_orange.txt
     Triangle {
-        vertex0 2.12 -0.2 1.2
-        vertex1 2.12 1.8 -1.2
-        vertex2 2.12 -0.2 -1.2
+        vertex0 2.10 -0.2 1.2
+        vertex1 2.14 1.8 -1.2
+        vertex2 2.10 -0.2 -1.2
         portal A01
     }
     MaterialPreset resources/materials/texture.txt
     Transform {
         Scale 0.227 0.100 0.020
         Translate 0 14 -100
-        ZRotate  15
         TriangleMesh {
             obj_file resources/objects/exit_surface.obj
         }
     }
-    MaterialPreset resources/materials/texture.txt
+    MaterialPreset resources/materials/shiny_texture.txt
     Transform {
         Scale 0.227 0.100 0.020
-        Translate 0 14 -100
-        ZRotate  15
+        Translate 0 14 -106
         TriangleMesh {
             obj_file resources/objects/exit_surround.obj
         }
     }
-    MaterialPreset resources/materials/texture.txt
+    MaterialPreset resources/materials/shiny_texture.txt
     Transform {
-        Scale 0.02 0.02 0.02
-        Translate -70 -110 70
+        Scale 0.23 0.23 0.23
+        Translate -6 -5.5 6
         YRotate -30
         TriangleMesh {
             obj_file resources/objects/portal_turret.obj
@@ -234,12 +277,13 @@ Group {
             obj_file resources/objects/warning_tape.obj
         }
     }
-    MaterialPreset resources/materials/texture.txt
+    MaterialPreset resources/materials/shiny_texture.txt
     Transform {
-        Scale  2.4 2.4 2.4
-        Translate 0 10.2 0.0001
+        Scale  0.004 0.004 0.004
+        Translate 445 -465 0
+        YRotate 15
         TriangleMesh {
-            obj_file resources/objects/warning_tape.obj
+            obj_file resources/objects/portal_wheatley.obj
         }
     }
 }

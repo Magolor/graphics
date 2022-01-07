@@ -10,10 +10,20 @@ mkdir -p output
 python  scripts/build_scene.py \
         --W 1920 \
         --H 1920 \
-        --softlights "-x 0.0 -y 2.4 -z 0.0 -n 4 -a 0.45 -i 0.9 --color \"0.9 0.9 0.85\"" \
+        --softlights "-x 0.0 -y 2.25 -z 0.0 -n 5 -a 0.7 -i 0.9 --color \"0.9 0.9 0.85\"" \
         --customlights "
     PointLight {
         position -1.8 -1.8 -1.8
+        color 0.05 0.9 0.9
+        intensity 0.02
+    }
+    PointLight {
+        position 1.8 -1.8 -1.8
+        color 0.05 0.9 0.9
+        intensity 0.02
+    }
+    PointLight {
+        position 1.8 -1.8 0
         color 0.05 0.9 0.9
         intensity 0.02
     }" \

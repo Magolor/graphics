@@ -18,6 +18,7 @@
 #include "transform.hpp"
 #include "utils.hpp"
 #include "image.hpp"
+#include "curve.hpp"
 
 #define MAX_PARSER_TOKEN_LENGTH 1024
 
@@ -207,7 +208,7 @@ private:
         assert (!strcmp(token, "}"));
     }
     
-    Light *parseDirectionalLight() {
+    Light* parseDirectionalLight() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         double intensity = 1.0;
         getToken(token);
@@ -227,7 +228,7 @@ private:
         return new DirectionalLight(direction, color, intensity);
     }
     
-    Light *parsePointLight() {
+    Light* parsePointLight() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         double intensity = 1.0;
         getToken(token);
@@ -275,7 +276,7 @@ private:
         assert (!strcmp(token, "}"));
     }
     
-    Material *parseMaterial() {
+    Material* parseMaterial() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         char filename[MAX_PARSER_TOKEN_LENGTH];
         filename[0] = 0;
@@ -313,7 +314,7 @@ private:
     // ====================================================================
     // ====================================================================
     
-    Object3D *parseObject(char token[MAX_PARSER_TOKEN_LENGTH]) {
+    Object3D* parseObject(char token[MAX_PARSER_TOKEN_LENGTH]) {
         Object3D *answer = nullptr;
         if (!strcmp(token, "Group")) {
             answer = (Object3D *) parseGroup();
@@ -327,6 +328,12 @@ private:
             answer = (Object3D *) parseTriangleMesh();
         } else if (!strcmp(token, "Transform")) {
             answer = (Object3D *) parseTransform();
+        } else if (!strcmp(token, "BezierCurve")) {
+            answer = (Object3D *) parseBezierCurve();
+        } else if (!strcmp(token, "BsplineCurve")) {
+            answer = (Object3D *) parseBsplineCurve();
+        } else if (!strcmp(token, "RevSurface")) {
+            answer = (Object3D *) parseRevSurface();
         } else {
             printf("Unknown token in parseObject: '%s'\n", token);
             exit(0);
@@ -337,7 +344,7 @@ private:
     // ====================================================================
     // ====================================================================
     
-    Group *parseGroup() {
+    Group* parseGroup() {
         //
         // each group starts with an integer that specifies
         // the number of objects in the group
@@ -390,7 +397,7 @@ private:
     // ====================================================================
     // ====================================================================
     
-    Sphere *parseSphere() {
+    Sphere* parseSphere() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         getToken(token);
         assert (!strcmp(token, "{"));
@@ -406,7 +413,7 @@ private:
         return new Sphere(center, radius, current_material);
     }
     
-    Plane *parsePlane() {
+    Plane* parsePlane() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         getToken(token);
         assert (!strcmp(token, "{"));
@@ -422,7 +429,7 @@ private:
         return new Plane(normal, offset, current_material);
     }
     
-    Triangle *parseTriangle() {
+    Triangle* parseTriangle() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         char portal[MAX_PARSER_TOKEN_LENGTH];
         portal[0] = 0;
@@ -457,7 +464,7 @@ private:
         return a;
     }
     
-    Mesh *parseTriangleMesh() {
+    Mesh* parseTriangleMesh() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         char filename[MAX_PARSER_TOKEN_LENGTH];
         // get the filename
@@ -475,6 +482,76 @@ private:
         return answer;
     }
     
+    Curve* parseBezierCurve() {
+        char token[MAX_PARSER_TOKEN_LENGTH];
+        getToken(token);
+        assert (!strcmp(token, "{"));
+        getToken(token);
+        assert (!strcmp(token, "controls"));
+        vector<Vector3f> controls;
+        while (true) {
+            getToken(token);
+            if (!strcmp(token, "[")) {
+                controls.push_back(readVector3f());
+                getToken(token);
+                assert (!strcmp(token, "]"));
+            } else if (!strcmp(token, "}")) {
+                break;
+            } else {
+                printf("Incorrect format for BezierCurve!\n");
+                exit(0);
+            }
+        }
+        Curve *answer = new BezierCurve(controls);
+        return answer;
+    }
+
+    Curve* parseBsplineCurve() {
+        char token[MAX_PARSER_TOKEN_LENGTH];
+        getToken(token);
+        assert (!strcmp(token, "{"));
+        getToken(token);
+        assert (!strcmp(token, "controls"));
+        vector<Vector3f> controls;
+        while (true) {
+            getToken(token);
+            if (!strcmp(token, "[")) {
+                controls.push_back(readVector3f());
+                getToken(token);
+                assert (!strcmp(token, "]"));
+            } else if (!strcmp(token, "}")) {
+                break;
+            } else {
+                printf("Incorrect format for BsplineCurve!\n");
+                exit(0);
+            }
+        }
+        Curve *answer = new BsplineCurve(controls);
+        return answer;
+    }
+
+    RevSurface* parseRevSurface() {
+        char token[MAX_PARSER_TOKEN_LENGTH];
+        getToken(token);
+        assert (!strcmp(token, "{"));
+        getToken(token);
+        assert (!strcmp(token, "profile"));
+        Curve* profile;
+        getToken(token);
+        if (!strcmp(token, "BezierCurve")) {
+            profile = parseBezierCurve();
+        } else if (!strcmp(token, "BsplineCurve")) {
+            profile = parseBsplineCurve();
+        } else {
+            printf("Unknown profile type in parseRevSurface: '%s'\n", token);
+            exit(0);
+        }
+        getToken(token);
+        assert (!strcmp(token, "}"));
+        auto *answer = new RevSurface(profile, current_material);
+        return answer;
+    }
+
     Transform *parseTransform() {
         char token[MAX_PARSER_TOKEN_LENGTH];
         Matrix4f matrix = Matrix4f::identity();

@@ -53,6 +53,11 @@ Mesh::Mesh(const char *filename, Material *material) : Object3D(material), T(nul
     if(A.size()>=MIN_KDTREE_BUILD_SIZE) T = new KDTree(&A);
 }
 
+Mesh::Mesh(vector<Triangle> *triangles, Material *material) : Object3D(material), T(nullptr) {
+    for(auto &triangle:*triangles) A.push_back(triangle);
+    if(A.size()>=MIN_KDTREE_BUILD_SIZE) T = new KDTree(&A);
+}
+
 bool Mesh::intersect(const Ray &r, Hit &h, double tmin) {
     if(T==nullptr){bool f=false; for(auto o:A) f = o.intersect(r,h,tmin) || f; return f;} else return T->intersect(r,h,tmin);
 }

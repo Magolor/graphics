@@ -2,6 +2,8 @@
 #define CURVE_HPP
 
 #include "object3d.hpp"
+#include "triangle.hpp"
+#include "material.hpp"
 #include <vecmath.h>
 #include <vector>
 #include <utility>
@@ -43,50 +45,27 @@ public:
 };
 
 struct CurvePoint {
-    Vector3f V; // Vertex
-    Vector3f T; // Tangent  (unit)
+    double t;
+    Vector3f V;
+    Vector3f T;
 };
 
 class Curve : public Object3D {
-protected:
-    std::vector<Vector3f> controls;
 public:
+    std::vector<Vector3f> controls;
+
     explicit Curve(std::vector<Vector3f> points) : controls(std::move(points)) {}
 
-    bool intersect(const Ray &r, Hit &h, float tmin) override {
-        return false;
-    }
-
-    std::vector<Vector3f> &getControls() {
-        return controls;
-    }
-
+    std::vector<Vector3f> &getControls() {return controls;}
     virtual void discretize(int resolution, std::vector<CurvePoint>& data) = 0;
-
-    void drawGL() override {
-        Object3D::drawGL();
-        glPushAttrib(GL_ALL_ATTRIB_BITS);
-        glDisable(GL_LIGHTING);
-        glColor3f(1, 1, 0);
-        glBegin(GL_LINE_STRIP);
-        for (auto & control : controls) { glVertex3fv(control); }
-        glEnd();
-        glPointSize(4);
-        glBegin(GL_POINTS);
-        for (auto & control : controls) { glVertex3fv(control); }
-        glEnd();
-        std::vector<CurvePoint> sampledPoints;
-        discretize(30, sampledPoints);
-        glColor3f(1, 1, 1);
-        glBegin(GL_LINE_STRIP);
-        for (auto & cp : sampledPoints) { glVertex3fv(cp.V); }
-        glEnd();
-        glPopAttrib();
-    }
+    bool intersect(const Ray &r, Hit &h, double tmin) override {return false;}
+    virtual Vector3f  f(double t){return Vector3f::ZERO;};
+    virtual Vector3f df(double t){return Vector3f::ZERO;};
 };
 
 class BezierCurve : public Curve {
 public:
+    Bezier *b;
     explicit BezierCurve(const std::vector<Vector3f> &points) : Curve(points) {
         if (points.size() < 4 || points.size() % 3 != 1) {
             printf("Number of control points of BezierCurve must be 3n+1!\n");
@@ -95,16 +74,16 @@ public:
     }
 
     void discretize(int resolution, std::vector<CurvePoint>& data) override {
-        data.clear(); Bezier b(controls); double d = 1./resolution, t = 0.;
-        for(int i = 0; i < resolution; data.push_back(CurvePoint{b.f(t),b.df(t)}), t += d, i++);
+        data.clear(); b = new Bezier(controls); double d = 1./resolution, t = 0.;
+        for(int i = 0; i < resolution; data.push_back(CurvePoint{t,b->f(t),b->df(t)}), t += d, i++);
     }
-
-protected:
-
+    Vector3f  f(double t) override {return b->f(t);}
+    Vector3f df(double t) override {return b->df(t);}
 };
 
 class BsplineCurve : public Curve {
 public:
+    Bspline *b;
     BsplineCurve(const std::vector<Vector3f> &points) : Curve(points) {
         if (points.size() < 4) {
             printf("Number of control points of BspineCurve must be more than 4!\n");
@@ -113,12 +92,84 @@ public:
     }
 
     void discretize(int resolution, std::vector<CurvePoint>& data) override {
-        data.clear(); Bspline b(controls); double d = 1./(b.n+b.k)/resolution, t;
-        for(int i = b.k, j; i <= b.n; i++) for(t = b.T[i], j = 0; j < resolution; b.deBoor(t), data.push_back(CurvePoint{b.f(t),b.df(t)}), t += d, j++);
+        data.clear(); b = new Bspline(controls); double d = 1./(b->n+b->k)/resolution, t;
+        for(int i = b->k, j; i <= b->n; i++) for(t = b->T[i], j = 0; j < resolution; b->deBoor(t), data.push_back(CurvePoint{t,b->f(t),b->df(t)}), t += d, j++);
+    }
+    Vector3f  f(double t) override {return b->deBoor(t), b->f(t);}
+    Vector3f df(double t) override {return b->deBoor(t), b->df(t);}
+};
+
+typedef std::tuple<unsigned, unsigned, unsigned> Tup3u;
+struct Surface {
+    std::vector<Vector3f> VV;
+    std::vector<Vector3f> VN;
+    std::vector<Tup3u> VF;
+};
+class RevSurface : public Object3D {
+public:
+    Curve *pCurve;
+    Surface surface;
+    std::vector<Triangle> triangles;
+    std::vector<CurvePoint> curvePoints;
+    Mesh *D;
+    int curve_resolution = 128;
+    int angle_resolution = 512;
+    int gn_iteraiton_steps = 6;
+    double learning_rate = 0.01;
+    RevSurface(Curve *pCurve, Material* material) : pCurve(pCurve), Object3D(material) {
+        for (const auto &cp : pCurve->getControls()) {
+            if (cp.z() != 0.0) {
+                printf("Profile of revSurface must be flat on xy plane.\n");
+                exit(0);
+            }
+        }
+        pCurve->discretize(curve_resolution, curvePoints);
+        int steps = angle_resolution;
+        for (unsigned int ci = 0; ci < curvePoints.size(); ++ci) {
+            const CurvePoint &cp = curvePoints[ci];
+            for (unsigned int i = 0; i < steps; ++i) {
+                float t = (float) i / steps;
+                Quat4f rot;
+                rot.setAxisAngle(t * 2 * M_PI, Vector3f::UP);
+                Vector3f pnew = Matrix3f::rotation(rot) * cp.V;
+                Vector3f pNormal = Vector3f::cross(cp.T, -Vector3f::FORWARD);
+                Vector3f nnew = Matrix3f::rotation(rot) * pNormal;
+                surface.VV.push_back(pnew+nnew*1e-3);
+                surface.VN.push_back(nnew);
+                int i1 = (i + 1 == steps) ? 0 : i + 1;
+                if (ci != curvePoints.size() - 1) {
+                    surface.VF.emplace_back((ci + 1) * steps + i, ci * steps + i1, ci * steps + i);
+                    surface.VF.emplace_back((ci + 1) * steps + i, (ci + 1) * steps + i1, ci * steps + i1);
+                }
+            }
+        }
+        for(auto &f:surface.VF) triangles.push_back(Triangle(
+            surface.VV[std::get<0>(f)], surface.VV[std::get<1>(f)], surface.VV[std::get<2>(f)], material
+        ));
+        for(int i = 0; i < triangles.size(); triangles[i].id = i, triangles[i].portal = &triangles[i], i++);
+        D = new Mesh(&triangles, material);
     }
 
-protected:
+    ~RevSurface() override {delete pCurve; delete D;}
 
+    bool intersect(const Ray &r, Hit &h, double tmin) {
+        Hit _h; if(!D->intersect(r, _h, tmin)) return false; Vector3f dC_dt = r.d, C, S, P, T, N; Quat4f rot; Matrix3f R;
+        double t = _h.t; int ID = std::get<0>(surface.VF[_h.portal->id]), _t = t;
+        double u = curvePoints[ID/angle_resolution].t, _u = u;
+        double v = (ID%angle_resolution)*2.*M_PI/angle_resolution, _v = v;
+        double last_distance = 1e38;
+        for(int i = 0; i <= gn_iteraiton_steps; i++){
+            rot.setAxisAngle(v, Vector3f::UP); R = Matrix3f::rotation(rot); C = r.p(t); P = pCurve->f(u); S = R*P;
+            if( (C-S).length()>last_distance ) break; last_distance = (C-S).length(); t = _t; u = _u; v = _v;
+            T = pCurve->df(u); N = Vector3f::cross(T, -Vector3f::FORWARD); if(i == gn_iteraiton_steps) break;
+            Vector3f dS_du = R*T, dS_dv = Vector3f(-sin(v)*P[0],0.,-cos(v)*P[0]);
+            double K = min(1./Vector3f::dot(dC_dt,Vector3f::cross(dS_du,dS_dv)),2.); Vector3f df = C-S;
+            _t = t - learning_rate * (Vector3f::dot(dS_du,Vector3f::cross(dS_dv,df))) / K;
+            _u = u - learning_rate * (Vector3f::dot(dC_dt,Vector3f::cross(dS_dv,df))) / K;
+            _v = v + learning_rate * (Vector3f::dot(dC_dt,Vector3f::cross(dS_du,df))) / K;
+        }
+        return t>=tmin&&t<h.t ? h.set(t,material,N), true : false;
+    }
 };
 
 #endif // CURVE_HPP

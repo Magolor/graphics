@@ -35,11 +35,11 @@ void SceneParser::render(const char *filename, int depth, bool preview) const {
     for(img = preview?new Image(W,H):(W<<=K,H<<=K,K=0,new Image(W,H)); K>=0; K?W<<=1,H<<=1,img=img->x2(),img->save(filename),0:0, f=false, K--)
         for(int x = 0; x < W; T += !f&&!(x&1)?H>>1:H, bar.progress(T, G), x++)
             if(!f&&!(x&1)){
-                #pragma omp parallel for num_threads(32)
+                // #pragma omp parallel for num_threads(32)
                 for(int y = 1; y < H; y += 2)
                     img->set(x,y,rayTracing(camera->generateRay(Vector2f((x<<K)/2.,(y<<K)/2.)),color,depth));
             } else {
-                #pragma omp parallel for num_threads(32)
+                // #pragma omp parallel for num_threads(32)
                 for(int y = 0; y < H; y++)
                     img->set(x,y,rayTracing(camera->generateRay(Vector2f((x<<K)/2.,(y<<K)/2.)),color,depth));
             }

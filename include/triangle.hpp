@@ -9,16 +9,17 @@ using namespace std;
 
 class Triangle: public Object3D {
 public:
-	Vector3f *v, normal;
+	Vector3f normal, *v;
 	Vector3f *vn; bool un;
 	Vector2f *vt; bool ut;
 	Triangle *portal;
+	int id = -1;
 
 	Triangle() = delete;
 	Triangle(Material* m) : Object3D(m), un(false), ut(false), portal(nullptr) {v = new Vector3f[3]; vn = new Vector3f[3]; vt = new Vector2f[3];}
 	Triangle(const Vector3f& a, const Vector3f& b, const Vector3f& c, Material* m)
 		 : Object3D(m), normal(Vector3f::cross(b-a,c-a).normalized()), un(false), ut(false), portal(nullptr) {v = new Vector3f[3]; vn = new Vector3f[3]; vt = new Vector2f[3]; v[0] = a; v[1] = b; v[2] = c;}
-
+	~Triangle() override {portal = nullptr;}
 	bool intersect(const Ray& l,  Hit& h, double tmin) override {
         Vector3f o = l.o, p = l.d, e1 = v[0]-v[1], e2 = v[0]-v[2], s = v[0]-o;
 		double d = Matrix3f(p,e1,e2).determinant(), t = 0., b = 0., c = 0.;

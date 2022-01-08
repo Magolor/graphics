@@ -11,411 +11,26 @@ PerspectiveCamera {
 
 
 Lights {
-    numLights 84
+    numLights 7
 	PointLight {
         position -0.7 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.7 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.7 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.7 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.7 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.7 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.7 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.7 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
+        intensity 0.225
     }
 	PointLight {
         position -0.7 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 -0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.5249999999999999 2.25 0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 -0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.35 2.25 0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 -0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position -0.175 2.25 0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 -0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.0 2.25 0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 -0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.175 2.25 0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 -0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.35 2.25 0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 -0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.5249999999999999 2.25 0.7
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
+        intensity 0.225
     }
 	PointLight {
         position 0.7 2.25 -0.7
         color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.7 2.25 -0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.7 2.25 -0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.7 2.25 -0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.7 2.25 0.0
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.7 2.25 0.175
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.7 2.25 0.35
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
-    }
-	PointLight {
-        position 0.7 2.25 0.5249999999999999
-        color 0.9 0.9 0.85
-        intensity 0.011111111111111112
+        intensity 0.225
     }
 	PointLight {
         position 0.7 2.25 0.7
         color 0.9 0.9 0.85
-        intensity 0.011111111111111112
+        intensity 0.225
     }
 
 
@@ -425,12 +40,12 @@ Lights {
         intensity 0.02
     }
     PointLight {
-        position 1.8 -1.8 -1.8
+        position 1.7 -1.8 -1.8
         color 0.05 0.9 0.9
         intensity 0.02
     }
     PointLight {
-        position 1.8 -1.8 0
+        position 1.7 -1.8 0
         color 0.05 0.9 0.9
         intensity 0.02
     }
@@ -440,149 +55,46 @@ Lights {
 
 Background {
     color 0 0 255
-    texture resources/textures/mlp.tga
+    texture resources/textures/portal.tga
 }
 
 Group {
-    numObjects 18
-    MaterialPreset resources/materials/texture.txt
-    Transform {
-        Scale  2.4 2.4 2.4
-        TriangleMesh {
-            obj_file resources/objects/room_right_wall.obj
-        }
-    }
-    MaterialPreset resources/materials/texture.txt
-    Transform {
-        Scale  2.4 2.4 2.4
-        TriangleMesh {
-            obj_file resources/objects/room_left_wall.obj
-        }
-    }
-    MaterialPreset resources/materials/shiny_texture.txt
-    Transform {
-        Scale  2.4 2.4 2.4
-        TriangleMesh {
-            obj_file resources/objects/room_floor.obj
-        }
-    }
-    MaterialPreset resources/materials/mirror.txt
-    Transform {
-        Scale  2.4 2.4 2.4
-        TriangleMesh {
-            obj_file resources/objects/room_front_wall.obj
-        }
-    }
-    MaterialPreset resources/materials/texture.txt
-    Transform {
-        Scale  2.4 2.4 2.4
-        TriangleMesh {
-            obj_file resources/objects/room_celling.obj
-        }
-    }
+    numObjects 1
     MaterialPreset resources/materials/glass.txt
     Transform {
-        Scale  2.4 2.4 2.4
-        TriangleMesh {
-            obj_file resources/objects/room_light.obj
-        }
-    }
-    MaterialPreset resources/materials/shiny_texture.txt
-    Transform {
-        Scale  0.2 0.2 0.2
-        Translate -7 -8.4 -7
-        YRotate  20
-        TriangleMesh {
-            obj_file resources/objects/portal_cube.obj
-        }
-    }
-    MaterialPreset resources/materials/white_metal.txt
-    Transform {
-        Scale  0.007 0.007 0.007
-        Translate 225 -222 -200
-        YRotate  -60
-        XRotate  60
-        TriangleMesh {
-            obj_file resources/objects/portal_gun.obj
-        }
-    }
-    MaterialPreset resources/materials/portal_blue.txt
-    Triangle {
-        vertex0 1.2 -1.6 -2.10
-        vertex1 1.2 0.4 -2.14
-        vertex2 -1.2 0.4 -2.14
-        portal A00
-    }
-    MaterialPreset resources/materials/portal_blue.txt
-    Triangle {
-        vertex0 1.2 -1.6 -2.10
-        vertex1 -1.2 0.4 -2.14
-        vertex2 -1.2 -1.6 -2.10
-        portal A01
-    }
-    MaterialPreset resources/materials/portal_orange.txt
-    Triangle {
-        vertex0 2.10 -0.2 1.2
-        vertex1 2.14 1.8 1.2
-        vertex2 2.14 1.8 -1.2
-        portal A00
-    }
-    MaterialPreset resources/materials/portal_orange.txt
-    Triangle {
-        vertex0 2.10 -0.2 1.2
-        vertex1 2.14 1.8 -1.2
-        vertex2 2.10 -0.2 -1.2
-        portal A01
-    }
-    MaterialPreset resources/materials/texture.txt
-    Transform {
-        Scale 0.227 0.100 0.020
-        Translate 0 14 -100
-        TriangleMesh {
-            obj_file resources/objects/exit_surface.obj
-        }
-    }
-    MaterialPreset resources/materials/shiny_texture.txt
-    Transform {
-        Scale 0.227 0.100 0.020
-        Translate 0 14 -106
-        TriangleMesh {
-            obj_file resources/objects/exit_surround.obj
-        }
-    }
-    MaterialPreset resources/materials/shiny_texture.txt
-    Transform {
-        Scale 0.23 0.23 0.23
-        Translate -6.5 -5.4 12
-        YRotate -30
-        TriangleMesh {
-            obj_file resources/objects/portal_turret.obj
-        }
-    }
-    MaterialPreset resources/materials/texture.txt
-    Transform {
-        Scale  2.4 2.4 2.4
-        Translate 0 0 0.0001
-        TriangleMesh {
-            obj_file resources/objects/warning_tape.obj
-        }
-    }
-    MaterialPreset resources/materials/shiny_texture.txt
-    Transform {
-        Scale  0.004 0.004 0.004
-        Translate 433 -455 0
-        YRotate 15
-        TriangleMesh {
-            obj_file resources/objects/portal_wheatley.obj
-        }
-    }
-    MaterialPreset resources/materials/texture.txt
-    Transform {
-        Scale 1.5 1.5 1.5
-        Translate 1.4 -1 4.3
-        YRotate -90
-        TriangleMesh {
-            obj_file resources/objects/portal_elevator.obj
+        Scale 0.5 0.5 0.5
+        Translate 0 0 -10
+        RevSurface {
+            profile BsplineCurve {
+                controls
+                    [ 0.000000 -0.459543 0.0 ]
+                    [ 0.000000 -0.459544 0.0 ]
+                    [ 0.000000 -0.459545 0.0 ]
+                    [ -0.351882 -0.426747 0.0 ]
+                    [ -0.848656 -0.278898 0.0 ]
+                    [ -1.112097 0.084005 0.0 ]
+                    [ -1.164785 1.105511 0.0 ]
+                    [ -0.991667 2.328629 0.0 ]
+                    [ -1.029301 2.503360 0.0 ]
+                    [ -1.088800 2.345600 0.0 ]
+                    [ -1.278000 1.162800 0.0 ]
+                    [ -1.214800 0.055200 0.0 ]
+                    [ -0.915600 -0.381200 0.0 ]
+                    [ -0.380400 -0.622000 0.0 ]
+                    [ -0.144000 -0.968400 0.0 ]
+                    [ -0.096800 -1.480000 0.0 ]
+                    [ -0.128400 -2.112400 0.0 ]
+                    [ -0.317200 -2.202800 0.0 ]
+                    [ -0.994400 -2.262800 0.0 ]
+                    [ -1.214800 -2.323200 0.0 ]
+                    [ -1.199200 -2.398400 0.0 ]
+                    [ -1.057600 -2.458800 0.0 ]
+                    [ -0.711200 -2.458800 0.0 ]
+                    [ 0.000000 -2.458800 0.0 ]
+                    [ 0.000000 -2.458801 0.0 ]
+                    [ 0.000000 -2.458802 0.0 ]
+
+            }
         }
     }
 }
